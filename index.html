@@ -3,31 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kukulcán IA Consulting</title>
+  <title>Kukulcán IA · NeXus</title>
   <meta
     name="description"
-    content="Kukulcán IA es un hub de inteligencia artificial aplicada. Todo empieza por NeXus: la puerta de entrada a una aproximación Customer Centric, orientada a ROI, productividad, trazabilidad y automatización."
+    content="Kukulcán IA. Inteligencia aplicada orientada a cliente, ROI, productividad y automatización. NeXus es la puerta de entrada al recorrido inicial."
   />
+
   <style>
     :root {
-      --bg: #06182b;
-      --bg-soft: #0b2742;
-      --bg-deep: #03101d;
-      --card: rgba(255,255,255,0.06);
-      --card-strong: rgba(255,255,255,0.09);
-      --line: rgba(255,255,255,0.14);
-      --line-strong: rgba(109, 180, 255, 0.28);
-      --text: #f5f8fc;
-      --muted: #c5d3e2;
-      --blue-main: #0057b8;
-      --blue-soft: #5da8ff;
-      --blue-glow: rgba(93, 168, 255, 0.22);
-      --white: #ffffff;
-      --gray: #cfd6df;
-      --gold-alert: #d8b45b;
+      --bg: #0b2341;            /* azul base tipo Telefónica adaptado */
+      --bg-deep: #07172c;
+      --bg-mid: #102c50;
+      --bg-soft: #163a63;
+      --mist: rgba(197, 220, 255, 0.06);
+      --card: rgba(255, 255, 255, 0.05);
+      --card-strong: rgba(255, 255, 255, 0.08);
+      --line: rgba(190, 215, 255, 0.12);
+      --line-strong: rgba(152, 208, 255, 0.28);
+      --text: #f4f7fb;
+      --text-soft: #d7e2ef;
+      --text-muted: #a9bdd5;
+      --cyan: #8fd8ff;
+      --silver: #d8dde4;
+      --silver-soft: #bfc9d6;
+      --accent: #9adfff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
       --maxw: 1240px;
-      --radius: 22px;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
     }
 
     * {
@@ -41,15 +45,16 @@
     }
 
     body {
-      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 20%, rgba(93,168,255,0.16), transparent 28%),
-        radial-gradient(circle at 80% 10%, rgba(0,87,184,0.18), transparent 22%),
-        radial-gradient(circle at 50% 80%, rgba(93,168,255,0.08), transparent 30%),
-        linear-gradient(180deg, #071a2e 0%, #04101d 100%);
+        radial-gradient(circle at 15% 15%, rgba(143, 216, 255, 0.10), transparent 22%),
+        radial-gradient(circle at 80% 10%, rgba(143, 216, 255, 0.08), transparent 24%),
+        radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.04), transparent 30%),
+        linear-gradient(180deg, #0d2545 0%, #081728 100%);
       min-height: 100vh;
       overflow-x: hidden;
+      letter-spacing: -0.01em;
     }
 
     body::before {
@@ -57,12 +62,10 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.22;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.22) 0.7px, transparent 1px);
       background-size: 28px 28px;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+      opacity: 0.08;
       z-index: 0;
     }
 
@@ -71,10 +74,9 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.06;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,0.7) 0.6px, transparent 0.8px);
-      background-size: 22px 22px;
+      background:
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.015) 45%, transparent 100%);
+      opacity: 0.35;
       z-index: 0;
     }
 
@@ -84,8 +86,9 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
+      height: auto;
     }
 
     .container {
@@ -96,72 +99,84 @@
     }
 
     .section {
-      padding: 92px 0;
+      padding: 104px 0;
       position: relative;
       z-index: 1;
-    }
-
-    .section-header {
-      max-width: 860px;
-      margin-bottom: 40px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--blue-soft);
-      margin-bottom: 14px;
+      margin-bottom: 18px;
+      color: var(--cyan);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
     .eyebrow::before {
       content: "";
-      width: 26px;
+      width: 28px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--blue-soft));
+      background: linear-gradient(90deg, transparent, var(--cyan));
+      opacity: 0.9;
     }
 
     h1, h2, h3, h4 {
-      line-height: 1.08;
+      line-height: 1.06;
+      font-weight: 600;
       letter-spacing: -0.03em;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 5vw, 5.2rem);
-      max-width: 950px;
+      font-size: clamp(2.8rem, 5vw, 5.6rem);
+      max-width: 780px;
+      margin-bottom: 20px;
     }
 
     h2 {
-      font-size: clamp(2rem, 3vw, 3.2rem);
-      margin-bottom: 18px;
+      font-size: clamp(2rem, 3vw, 3.4rem);
+      margin-bottom: 16px;
+      max-width: 900px;
     }
 
     h3 {
-      font-size: 1.18rem;
-      margin-bottom: 12px;
-    }
-
-    p.lead {
-      font-size: clamp(1rem, 1.35vw, 1.18rem);
-      color: var(--muted);
-      line-height: 1.75;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
     }
 
     p {
-      line-height: 1.75;
-      color: var(--muted);
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .lead {
+      font-size: clamp(1.05rem, 1.4vw, 1.18rem);
+      color: var(--text-soft);
+      max-width: 860px;
+    }
+
+    .subtle {
+      color: var(--text-muted);
     }
 
     .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .panel {
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
     }
 
     .btn-row {
@@ -178,11 +193,11 @@
       min-height: 52px;
       padding: 0 22px;
       border-radius: 999px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-      cursor: pointer;
       border: 1px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+      font-size: 0.98rem;
     }
 
     .btn:hover {
@@ -190,49 +205,47 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--blue-main), #0f7fff);
-      color: var(--white);
-      box-shadow: 0 12px 30px rgba(0, 87, 184, 0.35);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 18px 40px rgba(0, 87, 184, 0.42);
+      background: linear-gradient(135deg, #1c4c85 0%, #2f6fb5 100%);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.08);
+      box-shadow: 0 16px 38px rgba(18, 55, 99, 0.45);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.03);
-      color: var(--white);
+      background: rgba(255,255,255,0.035);
+      color: var(--text);
       border-color: var(--line);
     }
 
     .btn-secondary:hover {
       border-color: var(--line-strong);
-      box-shadow: 0 8px 28px rgba(93, 168, 255, 0.12);
     }
 
-    .btn-link {
-      color: var(--blue-soft);
-      padding: 0;
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-soft);
+      border-color: transparent;
+      padding-left: 0;
+      padding-right: 0;
       min-height: auto;
-      background: none;
     }
 
     header.site-header {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 50;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(3, 13, 25, 0.72);
+      background: rgba(7, 21, 39, 0.72);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .header-inner {
-      min-height: 82px;
+      min-height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
     }
 
     .brand {
@@ -242,29 +255,39 @@
       min-width: 0;
     }
 
-    .brand img {
-      width: 48px;
-      height: 48px;
+    .brand-logo-wrap {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 8px 20px rgba(93,168,255,0.2));
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.05;
+      line-height: 1.08;
     }
 
     .brand-text strong {
-      font-size: 1.05rem;
-      color: var(--white);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--text);
     }
 
     .brand-text span {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray);
+      color: var(--text-muted);
+      font-size: 0.8rem;
     }
 
     nav.main-nav {
@@ -276,21 +299,17 @@
     }
 
     nav.main-nav a {
-      color: var(--gray);
-      font-size: 0.93rem;
-      transition: color 0.2s ease;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      transition: color .2s ease;
     }
 
     nav.main-nav a:hover {
-      color: var(--white);
-    }
-
-    .nav-cta {
-      margin-left: 8px;
+      color: var(--text);
     }
 
     .hero {
-      padding: 88px 0 56px;
+      padding: 86px 0 72px;
       position: relative;
       overflow: hidden;
     }
@@ -300,252 +319,251 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 50% 20%, rgba(93,168,255,0.20), transparent 26%),
-        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 50%);
+        radial-gradient(circle at 62% 34%, rgba(143, 216, 255, 0.13), transparent 18%),
+        radial-gradient(circle at 68% 48%, rgba(255,255,255,0.05), transparent 28%);
       pointer-events: none;
       z-index: 0;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: stretch;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 36px;
+      align-items: center;
       position: relative;
       z-index: 1;
     }
 
     .hero-copy {
-      padding: 24px 0;
-    }
-
-    .hero-copy .eyebrow {
-      margin-bottom: 18px;
-    }
-
-    .hero-copy h1 {
-      margin-bottom: 22px;
+      padding: 18px 0;
     }
 
     .hero-copy .lead {
-      max-width: 820px;
+      max-width: 720px;
     }
 
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 30px;
-      max-width: 820px;
+    .hero-note {
+      margin-top: 22px;
+      max-width: 640px;
+      font-size: 0.98rem;
+      color: var(--text-muted);
     }
 
-    .hero-point {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid rgba(255,255,255,0.09);
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .hero-card {
-      padding: 26px;
+    .hero-visual {
+      min-height: 660px;
       position: relative;
+      border-radius: 36px;
       overflow: hidden;
-      min-height: 100%;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(151, 230, 255, 0.14), transparent 20%),
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,0.12), transparent 8%),
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
     }
 
-    .hero-card::before {
+    .hero-visual::before {
       content: "";
       position: absolute;
-      inset: auto -50px -40px auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(93,168,255,0.26), transparent 70%);
-      filter: blur(14px);
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(143,216,255,0.12), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 55%);
       pointer-events: none;
     }
 
-    .hero-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 30px;
-      padding: 0 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(93,168,255,0.25);
-      color: var(--blue-soft);
-      background: rgba(93,168,255,0.07);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-    }
-
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .metric {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .metric strong {
-      display: block;
-      color: var(--white);
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .metric span {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .maya-divider {
-      height: 1px;
+    .portal-core {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      border: 1px solid rgba(143,216,255,0.22);
+      box-shadow:
+        0 0 0 32px rgba(143,216,255,0.035),
+        0 0 120px rgba(143,216,255,0.16);
       background:
-        linear-gradient(90deg, transparent, rgba(93,168,255,0.5), transparent);
-      margin: 16px 0 0;
-      position: relative;
+        radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(143,216,255,0.10) 32%, transparent 72%);
     }
 
-    .maya-divider::before,
-    .maya-divider::after {
+    .portal-core::before,
+    .portal-core::after {
       content: "";
       position: absolute;
-      top: -4px;
-      width: 10px;
-      height: 10px;
-      border: 1px solid rgba(93,168,255,0.32);
-      transform: rotate(45deg);
-      background: rgba(93,168,255,0.08);
+      inset: 18px;
+      border-radius: 50%;
+      border: 1px solid rgba(143,216,255,0.14);
     }
 
-    .maya-divider::before { left: 28%; }
-    .maya-divider::after { right: 28%; }
+    .portal-core::after {
+      inset: 42px;
+      border-color: rgba(143,216,255,0.10);
+    }
+
+    .portal-beam {
+      position: absolute;
+      left: 50%;
+      top: 2%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 78%;
+      background:
+        linear-gradient(180deg, transparent 0%, rgba(190, 244, 255, 0.20) 20%, rgba(255,255,255,0.84) 52%, rgba(170, 230, 255, 0.18) 84%, transparent 100%);
+      filter: blur(1px);
+      opacity: 0.92;
+      box-shadow: 0 0 24px rgba(195,240,255,0.40);
+    }
+
+    .portal-base {
+      position: absolute;
+      left: 50%;
+      bottom: 8%;
+      transform: translateX(-50%);
+      width: 420px;
+      height: 120px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.16), rgba(143,216,255,0.12) 26%, rgba(143,216,255,0.04) 52%, transparent 72%);
+      border: 1px solid rgba(143,216,255,0.12);
+      filter: blur(0.3px);
+    }
+
+    .portal-base::before {
+      content: "";
+      position: absolute;
+      inset: 16px 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(143,216,255,0.10);
+    }
+
+    .hero-kukulcan {
+      position: absolute;
+      left: -4%;
+      bottom: 6%;
+      width: 52%;
+      max-width: 360px;
+      opacity: 0.82;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.24));
+    }
+
+    .hero-nexus-mark {
+      position: absolute;
+      right: 6%;
+      top: 8%;
+      width: 168px;
+      opacity: 0.92;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.18));
+    }
+
+    .hero-label {
+      position: absolute;
+      right: 6%;
+      bottom: 8%;
+      max-width: 250px;
+      text-align: right;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
+      gap: 20px;
     }
 
-    .card {
-      padding: 24px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.09);
-      box-shadow: var(--shadow);
-    }
-
-    .card p {
-      font-size: 0.97rem;
-    }
-
-    .card ul {
-      list-style: none;
-      margin-top: 12px;
+    .feature-list {
       display: grid;
-      gap: 10px;
+      gap: 18px;
     }
 
-    .card ul li {
-      color: var(--muted);
-      line-height: 1.65;
-      position: relative;
-      padding-left: 18px;
+    .feature-item {
+      padding: 20px 22px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .card ul li::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--blue-soft);
-      position: absolute;
-      left: 0;
-      top: 11px;
-      box-shadow: 0 0 0 4px rgba(93,168,255,0.10);
+    .feature-item p {
+      color: var(--text-muted);
     }
 
-    .nexus-panel {
-      padding: 28px;
+    .nexus-slab {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
+      grid-template-columns: 0.98fr 1.02fr;
+      gap: 28px;
       align-items: stretch;
     }
 
-    .nexus-panel .left,
-    .nexus-panel .right {
-      min-width: 0;
+    .slab-mark {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
     }
 
-    .nexus-panel .left h3 {
-      font-size: 1.6rem;
-      margin-bottom: 14px;
-    }
-
-    .nexus-highlight {
-      margin-top: 22px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .nexus-highlight .item {
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
+    .slab-mark .mark-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      padding: 12px;
       background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .steps {
+      display: grid;
+      gap: 16px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .step:last-child {
+      border-bottom: 0;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--cyan);
+      background: rgba(143,216,255,0.08);
+      border: 1px solid rgba(143,216,255,0.18);
+      font-weight: 600;
     }
 
     .catalog-card {
+      min-height: 220px;
       position: relative;
       overflow: hidden;
-      min-height: 220px;
-    }
-
-    .catalog-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -40px auto;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(93,168,255,0.18), transparent 72%);
-      pointer-events: none;
     }
 
     .catalog-card .status {
@@ -554,74 +572,53 @@
       min-height: 28px;
       padding: 0 10px;
       border-radius: 999px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.035);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
       margin-bottom: 14px;
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--gray);
-      background: rgba(255,255,255,0.03);
     }
 
-    .steps {
-      counter-reset: step;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .step {
-      padding: 22px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.09);
-      position: relative;
-    }
-
-    .step::before {
-      counter-increment: step;
-      content: "0" counter(step);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
+    .catalog-card::after {
+      content: "";
+      position: absolute;
+      right: -28px;
+      bottom: -28px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      margin-bottom: 16px;
-      background: rgba(93,168,255,0.10);
-      color: var(--blue-soft);
-      border: 1px solid rgba(93,168,255,0.25);
-      font-weight: 700;
+      background: radial-gradient(circle, rgba(143,216,255,0.12), transparent 70%);
+      pointer-events: none;
     }
 
     .services-list,
     .principles-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .service-item,
     .principle-item {
-      padding: 18px 18px 18px 20px;
-      border-radius: 18px;
+      padding: 18px 20px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.035);
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
+      color: var(--text-soft);
+      line-height: 1.7;
     }
 
-    .faq-agent-box {
+    .faq-panel {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 18px;
+      gap: 22px;
       align-items: center;
-      padding: 28px;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
+      gap: 24px;
     }
 
     form.contact-form {
@@ -641,8 +638,8 @@
     }
 
     .field label {
-      font-size: 0.9rem;
-      color: var(--gray);
+      font-size: 0.92rem;
+      color: var(--text-muted);
     }
 
     .field input,
@@ -651,21 +648,21 @@
       width: 100%;
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.035);
-      color: var(--white);
+      color: var(--text);
       border-radius: 16px;
       padding: 14px 16px;
       outline: none;
       font: inherit;
     }
 
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: #95a8bc;
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
     }
 
-    .field textarea {
-      min-height: 148px;
-      resize: vertical;
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #8fa8c3;
     }
 
     .contact-side {
@@ -674,25 +671,26 @@
       align-content: start;
     }
 
-    .contact-quick a {
+    .contact-link {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
       padding: 16px 18px;
-      border-radius: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.035);
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
-      color: var(--muted);
+      color: var(--text-soft);
     }
 
-    .contact-quick a:hover {
+    .contact-link:hover {
       border-color: var(--line-strong);
     }
 
     footer.site-footer {
-      padding: 34px 0 46px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.14);
+      padding: 34px 0 44px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.12);
       position: relative;
       z-index: 1;
     }
@@ -709,25 +707,51 @@
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      color: var(--gray);
-      font-size: 0.92rem;
+      color: var(--text-muted);
+      font-size: 0.94rem;
     }
 
     .footer-links a:hover {
-      color: var(--white);
+      color: var(--text);
     }
 
+    .floating-nexus {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 40;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1d4e88 0%, #2e6daf 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      box-shadow: 0 18px 44px rgba(8, 27, 52, 0.45);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .floating-nexus img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+
+    /* modales */
     .modal {
       position: fixed;
       inset: 0;
-      z-index: 120;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 18px;
-      background: rgba(1, 8, 16, 0.74);
+      padding: 20px;
+      background: rgba(3, 10, 18, 0.72);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      z-index: 120;
     }
 
     .modal.active {
@@ -738,11 +762,10 @@
       width: min(1180px, 100%);
       max-height: 92vh;
       overflow: hidden;
-      border-radius: 28px;
-      background: linear-gradient(180deg, #081a2f, #04101c);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 30px 90px rgba(0,0,0,0.5);
-      position: relative;
+      border-radius: 30px;
+      background: linear-gradient(180deg, #0c213d 0%, #071524 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 28px 90px rgba(0,0,0,0.45);
     }
 
     .modal-header {
@@ -751,23 +774,40 @@
       justify-content: space-between;
       gap: 16px;
       padding: 18px 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .modal-title {
       display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .modal-title img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      padding: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .modal-title-text {
+      display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
 
-    .modal-title strong {
-      font-size: 1.06rem;
-      color: var(--white);
+    .modal-title-text strong {
+      font-size: 1.05rem;
+      color: var(--text);
     }
 
-    .modal-title span {
-      font-size: 0.86rem;
-      color: var(--gray);
+    .modal-title-text span {
+      font-size: 0.88rem;
+      color: var(--text-muted);
     }
 
     .modal-close {
@@ -775,120 +815,189 @@
       height: 42px;
       border-radius: 50%;
       border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: var(--white);
-      font-size: 1.2rem;
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 1.18rem;
       cursor: pointer;
     }
 
     .modal-body {
-      height: calc(92vh - 79px);
-      overflow: auto;
-      padding: 0;
-    }
-
-    .embed-shell {
-      width: 100%;
-      height: 100%;
-      min-height: 560px;
-      background:
-        radial-gradient(circle at 12% 15%, rgba(93,168,255,0.10), transparent 24%),
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       display: grid;
-      grid-template-columns: 360px 1fr;
+      grid-template-columns: 340px 1fr;
+      height: calc(92vh - 79px);
+      min-height: 620px;
     }
 
-    .embed-info {
-      padding: 26px;
-      border-right: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.025);
+    .chat-side {
+      padding: 24px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.02);
+      display: grid;
+      align-content: start;
+      gap: 18px;
     }
 
-    .embed-info h3 {
-      font-size: 1.45rem;
-      margin-bottom: 12px;
+    .chat-side .mini-logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 22px;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .embed-info p {
-      margin-bottom: 18px;
-    }
-
-    .embed-info ul {
+    .chat-side ul {
       list-style: none;
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .embed-info li {
-      color: var(--muted);
-      line-height: 1.65;
-      padding-left: 18px;
+    .chat-side li {
+      color: var(--text-soft);
+      line-height: 1.7;
       position: relative;
+      padding-left: 18px;
     }
 
-    .embed-info li::before {
+    .chat-side li::before {
       content: "";
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--blue-soft);
+      background: var(--cyan);
       position: absolute;
       left: 0;
       top: 10px;
-      box-shadow: 0 0 0 4px rgba(93,168,255,0.10);
+      box-shadow: 0 0 0 4px rgba(143,216,255,0.08);
     }
 
-    .embed-stage {
-      position: relative;
-      min-height: 560px;
-      background: rgba(255,255,255,0.015);
+    .powered-by {
+      margin-top: 4px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--text-muted);
+      font-size: 0.92rem;
     }
 
-    .embed-stage iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      background: transparent;
-    }
-
-    .embed-placeholder {
-      position: absolute;
-      inset: 26px;
-      border: 1px dashed rgba(93,168,255,0.28);
-      border-radius: 22px;
+    .chat-main {
       display: grid;
-      place-items: center;
+      grid-template-rows: 1fr auto;
+      min-width: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(143,216,255,0.05), transparent 20%),
+        rgba(255,255,255,0.01);
+    }
+
+    .chat-messages {
+      padding: 24px;
+      overflow: auto;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .message {
+      max-width: 84%;
+      padding: 14px 16px;
+      border-radius: 18px;
+      line-height: 1.7;
+      font-size: 0.97rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .message.bot {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-soft);
+      justify-self: start;
+      border-top-left-radius: 8px;
+    }
+
+    .message.user {
+      background: linear-gradient(135deg, rgba(41, 97, 155, 0.95), rgba(28, 76, 133, 0.95));
+      color: var(--text);
+      justify-self: end;
+      border-top-right-radius: 8px;
+      box-shadow: 0 12px 28px rgba(5, 22, 44, 0.30);
+    }
+
+    .message.system {
+      max-width: 100%;
+      justify-self: center;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px dashed rgba(255,255,255,0.10);
       text-align: center;
-      padding: 28px;
-      color: var(--muted);
-      background: rgba(93,168,255,0.03);
     }
 
-    .floating-nexus {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 60;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .chat-input-wrap {
+      padding: 18px 20px 20px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .chat-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+    }
+
+    .chat-form textarea {
+      width: 100%;
       min-height: 56px;
-      padding: 0 20px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--blue-main), #0f7fff);
-      color: var(--white);
-      box-shadow: 0 16px 40px rgba(0,87,184,0.38);
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
+      max-height: 160px;
+      resize: vertical;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.035);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 16px;
+      font: inherit;
+      outline: none;
     }
 
-    @media (max-width: 1120px) {
+    .chat-form textarea::placeholder {
+      color: #8ea7c2;
+    }
+
+    .chat-send {
+      min-width: 132px;
+      min-height: 56px;
+      align-self: end;
+    }
+
+    .chat-status {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      min-height: 20px;
+    }
+
+    .soft-divider {
+      height: 1px;
+      margin-top: 22px;
+      background: linear-gradient(90deg, transparent, rgba(143,216,255,0.36), transparent);
+    }
+
+    @media (max-width: 1100px) {
       .hero-grid,
-      .nexus-panel,
+      .nexus-slab,
       .contact-grid,
-      .embed-shell {
+      .modal-body {
         grid-template-columns: 1fr;
+      }
+
+      .modal-body {
+        height: auto;
+        min-height: auto;
+        max-height: calc(92vh - 79px);
+        overflow: auto;
+      }
+
+      .chat-side {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
       }
 
       .grid-4 {
@@ -899,67 +1008,110 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .steps {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .embed-info {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+      .hero-visual {
+        min-height: 560px;
       }
     }
 
-    @media (max-width: 840px) {
+    @media (max-width: 860px) {
       nav.main-nav {
         display: none;
       }
 
-      .hero-points,
       .grid-2,
       .grid-3,
       .grid-4,
       .services-list,
       .principles-list,
-      .steps,
-      .form-grid {
+      .form-grid,
+      .faq-panel {
         grid-template-columns: 1fr;
-      }
-
-      .faq-agent-box {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 74px 0;
       }
 
       .hero {
         padding-top: 64px;
       }
 
-      .floating-nexus {
-        right: 14px;
-        bottom: 14px;
+      .hero-visual {
+        min-height: 460px;
+      }
+
+      .hero-kukulcan {
+        width: 56%;
+      }
+
+      .hero-nexus-mark {
+        width: 132px;
+      }
+
+      .portal-core {
+        width: 230px;
+        height: 230px;
+      }
+
+      .portal-base {
+        width: 310px;
       }
     }
   </style>
 </head>
 <body>
 
+  <!--
+    ============================================================
+    CONFIGURACION PRINCIPAL
+    ============================================================
+    CAMBIA SOLO ESTAS VARIABLES CUANDO SUBAS TODO AL SERVIDOR
+    ============================================================
+  -->
+  <script>
+    /*
+      1) URL DEL LOGO DE KUKULCAN IA
+         Ejemplo:
+         const KUKULCAN_LOGO_URL = "/img/kukulcan-logo.png";
+    */
+    const KUKULCAN_LOGO_URL = "/img/kukulcan-logo.png";
+
+    /*
+      2) URL DEL LOGO DE KAI NEXUS
+         Ejemplo:
+         const NEXUS_LOGO_URL = "/img/kai-nexus-logo.png";
+    */
+    const NEXUS_LOGO_URL = "/img/kai-nexus-logo.png";
+
+    /*
+      3) WEBHOOK N8N PRINCIPAL DE NEXUS
+         PON AQUI LA URL REAL DEL WEBHOOK DE N8N DEL CHAT PRINCIPAL
+         Ejemplo:
+         const NEXUS_WEBHOOK_URL = "https://TU-N8N/webhook/nexus-chat";
+    */
+    const NEXUS_WEBHOOK_URL = "PON_AQUI_LA_URL_DEL_WEBHOOK_N8N_DE_NEXUS";
+
+    /*
+      4) WEBHOOK N8N DEL AGENTE FAQS
+         PON AQUI LA URL REAL DEL WEBHOOK DE N8N DEL CHAT DE FAQS
+         Ejemplo:
+         const FAQS_WEBHOOK_URL = "https://TU-N8N/webhook/faqs-chat";
+    */
+    const FAQS_WEBHOOK_URL = "PON_AQUI_LA_URL_DEL_WEBHOOK_N8N_DE_FAQS";
+  </script>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Kukulcán IA">
-        <img src="Logo_Kukulcan_AI.v2.png" alt="Logo Kukulcán IA" />
+      <a href="#inicio" class="brand" aria-label="Kukulcán IA">
+        <div class="brand-logo-wrap">
+          <img id="headerKukulcanLogo" alt="Logo Kukulcán IA" />
+        </div>
         <div class="brand-text">
           <strong>Kukulcán IA</strong>
-          <span>Consulting</span>
+          <span>inteligencia aplicada</span>
         </div>
       </a>
 
       <nav class="main-nav" aria-label="Principal">
         <a href="#que-es">Qué es</a>
         <a href="#nexus">NeXus</a>
-        <a href="#neuronas">Neuronas de Negocio</a>
+        <a href="#neuronas">Neuronas de negocio</a>
         <a href="#catalogo">Catálogo</a>
         <a href="#como-empezar">Cómo empezar</a>
         <a href="#servicios">Servicios IA</a>
@@ -967,72 +1119,48 @@
         <a href="#faqs">Agente FAQs</a>
         <a href="#quienes-somos">Quiénes somos</a>
         <a href="#contacto">Contacto</a>
-        <button class="btn btn-primary nav-cta" onclick="openModal('nexusModal')">NeXus</button>
+        <button class="btn btn-primary" type="button" onclick="openModal('nexusModal')">Abrir NeXus</button>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main id="inicio">
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Territorio de marca · IA aplicada · enfoque customer centric</div>
-          <h1>Todo empieza por NeXus</h1>
+          <div class="eyebrow">Kukulcán IA · territorio de inteligencia aplicada</div>
+          <h1>NeXus, punto de entrada a una inteligencia aplicada orientada al cliente</h1>
           <p class="lead">
-            NeXus constituye la puerta de entrada a Kukulcán IA. Activa la primera neurona de negocio,
-            orientada a una aproximación Customer Centric que transforma la relación con el cliente en una
-            base operativa para la automatización, la inteligencia aplicada, el ROI, la productividad y la
-            dignidad del trabajo.
+            NeXus inicia el recorrido principal de Kukulcán IA. Activa una primera conversación
+            sobre cliente, operación, retorno, productividad y automatización, y abre la primera
+            neurona de negocio: una aproximación customer centric concebida como base metodológica y operativa.
           </p>
 
           <div class="btn-row">
-            <button class="btn btn-primary" onclick="openModal('nexusModal')">Abrir NeXus</button>
+            <button class="btn btn-primary" type="button" onclick="openModal('nexusModal')">Iniciar en NeXus</button>
             <a class="btn btn-secondary" href="#que-es">Comprender el modelo</a>
-            <a class="btn btn-link" href="#catalogo">Explorar catálogo institucional</a>
+            <a class="btn btn-ghost" href="#catalogo">Ver arquitectura de neuronas</a>
           </div>
 
-          <div class="hero-points">
-            <div class="hero-point">Primera activación: Customer Centric como núcleo inicial de decisión.</div>
-            <div class="hero-point">Orientación a resultados: ROI, trazabilidad, productividad y experiencia de cliente.</div>
-            <div class="hero-point">Modelo escalable: NeXus inicia el recorrido y habilita nuevas neuronas de negocio.</div>
-            <div class="hero-point">Arquitectura maya-tech: inteligencia aplicada con identidad, método y territorio de marca.</div>
-          </div>
+          <p class="hero-note">
+            La función principal de esta página no es presentar primero un catálogo, sino abrir el umbral inicial.
+            El resto del sitio actúa como marco institucional, narrativo y metodológico del sistema.
+          </p>
         </div>
 
-        <aside class="hero-card glass" aria-label="Resumen estratégico">
-          <div class="hero-card-top">
-            <span class="badge">Nodo inicial</span>
-            <span class="badge">Primera neurona</span>
+        <div class="hero-visual" aria-hidden="true">
+          <img id="heroKukulcanLogo" class="hero-kukulcan" alt="Kukulcán IA" />
+          <img id="heroNexusLogo" class="hero-nexus-mark" alt="KAI NeXus" />
+
+          <div class="portal-beam"></div>
+          <div class="portal-core"></div>
+          <div class="portal-base"></div>
+
+          <div class="hero-label">
+            Un umbral inicial para activar criterio, relación con el cliente,
+            automatización y recorrido posterior de inteligencia aplicada.
           </div>
-
-          <h3>NeXus activa la aproximación al cliente digital</h3>
-          <p>
-            La propuesta de valor principal no consiste en mostrar primero un catálogo de servicios,
-            sino en iniciar una conversación estructurada. A través de NeXus comienza el primer recorrido:
-            comprender la gestión de cliente, ordenar prioridades y abrir un viaje de automatización e IA aplicada.
-          </p>
-
-          <div class="maya-divider"></div>
-
-          <div class="hero-metrics">
-            <div class="metric">
-              <strong>Customer Centric</strong>
-              <span>Primera neurona orientada al cliente como eje de valor y activación.</span>
-            </div>
-            <div class="metric">
-              <strong>ROI y productividad</strong>
-              <span>Enfoque explícito en impacto operativo, comercial y eficiencia estructural.</span>
-            </div>
-            <div class="metric">
-              <strong>Clima y dignidad</strong>
-              <span>La tecnología se plantea como ampliación de capacidad, no como fricción organizativa.</span>
-            </div>
-            <div class="metric">
-              <strong>Escalabilidad</strong>
-              <span>Desde NeXus se habilita el despliegue progresivo de nuevas neuronas.</span>
-            </div>
-          </div>
-        </aside>
+        </div>
       </div>
     </section>
 
@@ -1040,33 +1168,33 @@
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Qué es Kukulcán IA</div>
-          <h2>Un territorio de inteligencia aplicada orientado a cliente, negocio y activación</h2>
+          <h2>Una arquitectura de servicio para transformar relación con cliente, datos y decisión</h2>
           <p class="lead">
-            Kukulcán IA no se limita a ofrecer automatización o servicios aislados de inteligencia artificial.
-            Constituye un modelo de servicios de inteligencia aplicada que organiza datos, procesos, decisiones y
-            activaciones en torno a una arquitectura de neuronas de negocio. En esa arquitectura, NeXus es el punto de
-            entrada: el primer nodo, la primera conversación y la primera neurona.
+            Kukulcán IA articula un modelo de inteligencia aplicada y automatización que organiza
+            información, criterio y activación en torno a neuronas de negocio. En esa arquitectura,
+            NeXus no es un elemento accesorio, sino el primer nodo: el punto desde el que se ordena
+            la aproximación inicial y se abre un trayecto escalable.
           </p>
         </div>
 
         <div class="grid-2">
-          <article class="card">
-            <h3>Propósito de la página</h3>
+          <div class="panel">
+            <h3>Propósito del sitio</h3>
             <p>
-              La función principal de esta web es iniciar la interacción a través de NeXus. Todas las secciones
-              restantes cumplen una función de soporte institucional: explicar el modelo, dar credibilidad, presentar
-              capacidades y mostrar la amplitud del ecosistema Kukulcán IA.
+              Esta web ha sido concebida para conducir la entrada hacia NeXus. Su estructura institucional,
+              sus secciones de contexto y su catálogo de neuronas existen para reforzar esa activación principal,
+              no para sustituirla.
             </p>
-          </article>
+          </div>
 
-          <article class="card">
+          <div class="panel">
             <h3>Destinatarios</h3>
             <p>
-              La propuesta se dirige a organizaciones y profesionales con relación directa o indirecta con clientes:
-              personas autónomas, empresarios, responsables de operaciones, responsables comerciales, equipos de atención,
-              y de forma prioritaria CEOs y direcciones de empresas medianas y grandes.
+              La propuesta se dirige a personas autónomas, empresarios, responsables de atención,
+              operaciones y dirección comercial, y de forma prioritaria a direcciones generales
+              y CEOs de organizaciones medianas y grandes.
             </p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -1075,48 +1203,65 @@
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">NeXus</div>
-          <h2>El primer nodo. La primera neurona. El inicio del viaje.</h2>
+          <h2>La primera neurona orientada a cliente, retorno y capacidad de activación</h2>
           <p class="lead">
-            NeXus constituye la interfaz inicial de Kukulcán IA. Su función es abrir una conversación estructurada
-            sobre cliente, operación, retorno y capacidades. Desde esa conversación se activa la primera neurona:
-            Customer Centric.
+            NeXus abre el diálogo inicial. Su función consiste en orientar la lectura del negocio desde la
+            relación con el cliente y convertir esa mirada en un punto de partida útil para ROI, productividad,
+            automatización, clima laboral y dignidad operativa.
           </p>
         </div>
 
-        <div class="glass nexus-panel">
-          <div class="left">
-            <h3>Customer Centric como origen operativo</h3>
+        <div class="glass nexus-slab">
+          <div class="panel" style="background: transparent; border: 0; box-shadow: none; padding: 8px 8px 8px 8px;">
+            <div class="slab-mark">
+              <div class="mark-box">
+                <img id="slabNexusLogo" alt="KAI NeXus" />
+              </div>
+              <div>
+                <h3 style="margin-bottom: 6px;">Nodo inicial del recorrido</h3>
+                <p class="subtle">Primera activación del sistema Kukulcán IA</p>
+              </div>
+            </div>
+
             <p>
-              La aproximación Customer Centric no se plantea aquí como una consigna general, sino como una neurona de
-              negocio capaz de ordenar criterios, orientar decisiones y convertir la gestión de cliente digital en una
-              base para automatización e inteligencia aplicada.
+              La aproximación customer centric se establece aquí como una neurona fundacional.
+              No se presenta como consigna abstracta, sino como una estructura capaz de ordenar prioridades,
+              reconocer contexto y orientar las decisiones iniciales del negocio.
             </p>
 
-            <div class="nexus-highlight">
-              <div class="item">
-                <strong>1. Comprensión del punto de partida</strong>
-                <p>NeXus identifica el contexto inicial de relación con clientes, datos, fricciones y prioridades.</p>
-              </div>
-              <div class="item">
-                <strong>2. Ordenación del criterio</strong>
-                <p>La conversación orienta la lectura de cliente hacia valor, ROI, continuidad y capacidad real de activación.</p>
-              </div>
-              <div class="item">
-                <strong>3. Apertura del recorrido</strong>
-                <p>Desde la primera neurona se habilita un itinerario hacia automatización, agentes, analítica y nuevas neuronas.</p>
-              </div>
+            <div class="soft-divider"></div>
+
+            <div class="btn-row">
+              <button class="btn btn-primary" type="button" onclick="openModal('nexusModal')">Abrir NeXus</button>
+              <a class="btn btn-secondary" href="#como-empezar">Ver secuencia</a>
             </div>
           </div>
 
-          <div class="right card">
-            <h3>Activación prioritaria</h3>
-            <p>
-              El CTA principal de toda la web debe conducir a NeXus. Por ello se repite en la cabecera, en el hero,
-              en esta sección, en el cierre y en el botón flotante.
-            </p>
-            <div class="btn-row">
-              <button class="btn btn-primary" onclick="openModal('nexusModal')">Iniciar en NeXus</button>
-              <a class="btn btn-secondary" href="#como-empezar">Ver recorrido</a>
+          <div class="panel" style="background: transparent; border: 0; box-shadow: none; padding: 8px;">
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">01</div>
+                <div>
+                  <h3>Lectura del punto de partida</h3>
+                  <p>Identificación de contexto, cliente, fricciones, señales y prioridades de activación.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">02</div>
+                <div>
+                  <h3>Ordenación del criterio</h3>
+                  <p>Relación entre cliente, retorno, productividad y posibilidad real de despliegue.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">03</div>
+                <div>
+                  <h3>Apertura del ecosistema</h3>
+                  <p>Habilitación progresiva de neuronas, automatizaciones, agentes y servicios de inteligencia aplicada.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1126,42 +1271,34 @@
     <section id="neuronas" class="section">
       <div class="container">
         <div class="section-header">
-          <div class="eyebrow">Neuronas de Negocio</div>
-          <h2>Módulos independientes de inteligencia aplicada</h2>
+          <div class="eyebrow">Neuronas de negocio</div>
+          <h2>Módulos independientes con contrato de datos, proceso y salida accionable</h2>
           <p class="lead">
-            Cada neurona define un contrato de datos, aplica un proceso analítico trazable y produce salidas preparadas
-            para su activación en sistemas, equipos, agentes o flujos automatizados.
+            Cada neurona define sus entradas, aplica un proceso analítico trazable y produce resultados preparados
+            para sistemas, agentes, automatizaciones o decisiones.
           </p>
         </div>
 
         <div class="grid-4">
-          <article class="card">
+          <div class="panel">
             <h3>Contrato de datos</h3>
-            <p>
-              Estructura de variables de entrada, validaciones, reglas de calidad y condiciones de consistencia.
-            </p>
-          </article>
+            <p>Variables de entrada, validaciones, rangos y reglas de calidad necesarias para asegurar consistencia.</p>
+          </div>
 
-          <article class="card">
+          <div class="panel">
             <h3>Proceso y trazabilidad</h3>
-            <p>
-              Aplicación de lógica, modelo, criterios de decisión y mecanismos de revisión y mejora continua.
-            </p>
-          </article>
+            <p>Lógica, modelo, control metodológico y capacidad de revisión sobre el tratamiento de la información.</p>
+          </div>
 
-          <article class="card">
+          <div class="panel">
             <h3>Outputs accionables</h3>
-            <p>
-              Priorizaciones, señales, recomendaciones, alertas e insights preparados para uso directo.
-            </p>
-          </article>
+            <p>Clasificaciones, alertas, recomendaciones, prioridades y señales listas para su consumo operativo.</p>
+          </div>
 
-          <article class="card">
+          <div class="panel">
             <h3>Personalización en destino</h3>
-            <p>
-              Adaptación a CRM, cuadros de mando, agentes, automatizaciones, atención y sistemas internos.
-            </p>
-          </article>
+            <p>Adaptación a CRM, BI, cuadros de mando, agentes, automatizaciones y entornos de atención.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1169,66 +1306,66 @@
     <section id="catalogo" class="section">
       <div class="container">
         <div class="section-header">
-          <div class="eyebrow">Catálogo institucional</div>
-          <h2>Neuronas disponibles y escalables desde NeXus</h2>
+          <div class="eyebrow">Catálogo</div>
+          <h2>Neuronas disponibles y escalables desde la activación inicial</h2>
           <p class="lead">
-            El catálogo no sustituye a NeXus: lo amplía. Tras la activación inicial, la arquitectura permite incorporar
-            nuevas neuronas orientadas a marketing, ventas, operaciones, fidelización, servicio y valor de cliente.
+            La activación comienza por NeXus y desde ese punto puede extenderse hacia nuevas neuronas
+            aplicadas a marketing, ventas, servicio, operaciones y valor de cliente.
           </p>
         </div>
 
         <div class="grid-4">
-          <article class="card catalog-card">
-            <span class="status">Activa</span>
+          <div class="panel catalog-card">
+            <div class="status">Activa</div>
             <h3>MQL</h3>
             <p>Calificación de leads de marketing mediante criterios de ajuste, interés y potencial de activación.</p>
-          </article>
+          </div>
 
-          <article class="card catalog-card">
-            <span class="status">Activa</span>
+          <div class="panel catalog-card">
+            <div class="status">Activa</div>
             <h3>SQL</h3>
-            <p>Priorización de leads comerciales según intención, madurez, oportunidad y capacidad de conversión.</p>
-          </article>
+            <p>Priorización de leads comerciales a partir de intención, madurez y capacidad de conversión.</p>
+          </div>
 
-          <article class="card catalog-card">
-            <span class="status">Configurable</span>
+          <div class="panel catalog-card">
+            <div class="status">Configurable</div>
             <h3>Omnichannel</h3>
-            <p>Lectura integrada de interacciones multicanal para mejorar continuidad, contexto y respuesta.</p>
-          </article>
+            <p>Lectura integrada de interacciones multicanal para continuidad, contexto y coordinación operativa.</p>
+          </div>
 
-          <article class="card catalog-card">
-            <span class="status">Configurable</span>
+          <div class="panel catalog-card">
+            <div class="status">Configurable</div>
             <h3>Loyalty</h3>
-            <p>Identificación de señales de permanencia, recurrencia y vinculación en estrategias de fidelización.</p>
-          </article>
+            <p>Identificación de permanencia, recurrencia y señales de vinculación para estrategias de fidelización.</p>
+          </div>
 
-          <article class="card catalog-card">
-            <span class="status">En diseño</span>
+          <div class="panel catalog-card">
+            <div class="status">En diseño</div>
             <h3>RevOper</h3>
-            <p>Apoyo a operaciones de ingresos mediante lectura combinada de eficiencia, rendimiento y oportunidad.</p>
-          </article>
+            <p>Soporte a operaciones de ingresos mediante análisis conjunto de rendimiento, eficiencia y oportunidad.</p>
+          </div>
 
-          <article class="card catalog-card">
-            <span class="status">Activa</span>
+          <div class="panel catalog-card">
+            <div class="status">Activa</div>
             <h3>SLA</h3>
-            <p>Seguimiento y priorización de cumplimiento de niveles de servicio por riesgo, tiempo y criticidad.</p>
-          </article>
+            <p>Seguimiento de cumplimiento de servicio con criterios de riesgo, tiempo y criticidad.</p>
+          </div>
 
-          <article class="card catalog-card">
-            <span class="status">Próxima</span>
+          <div class="panel catalog-card">
+            <div class="status">Próxima</div>
             <h3>Customer Equity</h3>
-            <p>Estimación de valor agregado de la base de clientes para orientar inversión, crecimiento y asignación.</p>
-          </article>
+            <p>Estimación del valor agregado de la base de clientes para orientar inversión y crecimiento sostenible.</p>
+          </div>
 
-          <article class="card catalog-card">
-            <span class="status">Nodo inicial</span>
+          <div class="panel catalog-card">
+            <div class="status">Fundacional</div>
             <h3>Customer Centric</h3>
-            <p>Primera neurona del recorrido. Ordena la aproximación al cliente como inicio estratégico y operativo.</p>
-          </article>
+            <p>La neurona inicial que ordena la relación con el cliente como origen del sistema de activación.</p>
+          </div>
         </div>
 
         <div class="btn-row">
-          <button class="btn btn-primary" onclick="openModal('nexusModal')">Acceder a NeXus</button>
+          <button class="btn btn-primary" type="button" onclick="openModal('nexusModal')">Iniciar en NeXus</button>
         </div>
       </div>
     </section>
@@ -1237,33 +1374,33 @@
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Cómo empezar</div>
-          <h2>Secuencia de activación</h2>
+          <h2>Una secuencia breve para iniciar, ordenar y desplegar</h2>
           <p class="lead">
-            La activación comienza por NeXus. Desde ese punto se define el caso de uso, se estructura la base de datos
-            y reglas, y se despliegan neuronas, automatizaciones y agentes conforme a prioridad de negocio.
+            La activación no parte de una lógica de catálogo, sino de una primera conversación estructurada
+            que permite reconocer necesidades, datos y trayectorias posibles de despliegue.
           </p>
         </div>
 
-        <div class="steps">
-          <article class="step">
+        <div class="feature-list">
+          <div class="feature-item">
             <h3>Inicio en NeXus</h3>
-            <p>Primera conversación estructurada para comprender cliente, operación, fricciones y objetivos.</p>
-          </article>
+            <p>Primera conversación sobre cliente, contexto, fricciones y objetivo de negocio.</p>
+          </div>
 
-          <article class="step">
-            <h3>Definición del criterio</h3>
-            <p>Formalización de variables, prioridades, pesos, reglas y condiciones de activación.</p>
-          </article>
+          <div class="feature-item">
+            <h3>Definición de criterio</h3>
+            <p>Establecimiento de variables, pesos, prioridades, reglas y condiciones de activación.</p>
+          </div>
 
-          <article class="step">
-            <h3>Despliegue de neuronas</h3>
-            <p>Implementación del modelo inicial y conexión con sistemas, flujos, agentes y cuadros de mando.</p>
-          </article>
+          <div class="feature-item">
+            <h3>Despliegue de neuronas y agentes</h3>
+            <p>Conexión con sistemas, automatizaciones, asistentes y mecanismos de salida accionable.</p>
+          </div>
 
-          <article class="step">
+          <div class="feature-item">
             <h3>Evolución del ecosistema</h3>
-            <p>Seguimiento de resultados, incorporación de nuevas neuronas y mejora continua del entorno operativo.</p>
-          </article>
+            <p>Seguimiento, ajuste y crecimiento progresivo de la arquitectura de inteligencia aplicada.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1272,10 +1409,10 @@
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Servicios IA</div>
-          <h2>Servicios de inteligencia aplicada y automatización</h2>
+          <h2>Diseño, implantación y evolución de inteligencia aplicada</h2>
           <p class="lead">
-            Kukulcán IA articula un nuevo modelo de servicios orientado a construir sistemas funcionales de inteligencia
-            aplicada, combinando diseño metodológico, automatización, agentes y operatividad real.
+            Kukulcán IA integra consultoría, automatización, agentes y modelos accionables en una estructura
+            orientada a utilidad real e integración efectiva en contextos operativos.
           </p>
         </div>
 
@@ -1298,17 +1435,17 @@
           <div class="eyebrow">Código ético</div>
           <h2>Responsabilidad, trazabilidad y dignidad operativa</h2>
           <p class="lead">
-            La inteligencia artificial aplicada debe operar con claridad metodológica, supervisión y orientación a
-            impacto útil. Kukulcán IA integra la eficiencia con una visión de trabajo digno, controlable y verificable.
+            La inteligencia aplicada solo es útil cuando puede explicarse, controlarse y ponerse al servicio
+            de una productividad compatible con calidad, criterio y respeto por las personas.
           </p>
         </div>
 
         <div class="principles-list">
-          <div class="principle-item">Transparencia en uso de datos y reglas de decisión</div>
+          <div class="principle-item">Transparencia en el uso de datos y reglas de decisión</div>
           <div class="principle-item">Supervisión humana en procesos sensibles o críticos</div>
           <div class="principle-item">Protección de la información y respeto a la privacidad</div>
           <div class="principle-item">Trazabilidad del procesamiento y de los outputs</div>
-          <div class="principle-item">Orientación a impacto útil, verificable y responsable</div>
+          <div class="principle-item">Orientación a impacto verificable y responsable</div>
           <div class="principle-item">Tecnología alineada con productividad y dignidad del trabajo</div>
         </div>
       </div>
@@ -1318,24 +1455,25 @@
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Agente FAQs</div>
-          <h2>Atención automatizada e información guiada</h2>
+          <h2>Canal informativo de atención y orientación</h2>
           <p class="lead">
-            El agente FAQs resuelve consultas frecuentes, orienta sobre el catálogo, explica el modelo Kukulcán IA y
-            facilita la navegación inicial. Opera como un agente independiente del modal principal de NeXus.
+            El agente FAQs resuelve consultas frecuentes, acompaña la comprensión del modelo y orienta
+            sobre catálogo, servicios y forma de activación.
           </p>
         </div>
 
-        <div class="glass faq-agent-box">
+        <div class="panel faq-panel">
           <div>
-            <h3>Canal de atención informativa</h3>
+            <h3>Atención automatizada independiente de NeXus</h3>
             <p>
-              Este agente está diseñado para acompañar la comprensión institucional de la propuesta. Para iniciar el
-              recorrido estratégico y la primera neurona, la entrada prioritaria sigue siendo NeXus.
+              Este agente no sustituye al nodo principal. Está concebido como apoyo informativo
+              para acompañar la navegación institucional y resolver dudas frecuentes.
             </p>
           </div>
-          <div class="btn-row">
-            <button class="btn btn-secondary" onclick="openModal('faqModal')">Abrir agente FAQs</button>
-            <button class="btn btn-primary" onclick="openModal('nexusModal')">Ir a NeXus</button>
+
+          <div class="btn-row" style="margin-top: 0;">
+            <button class="btn btn-secondary" type="button" onclick="openModal('faqModal')">Abrir agente FAQs</button>
+            <button class="btn btn-primary" type="button" onclick="openModal('nexusModal')">Ir a NeXus</button>
           </div>
         </div>
       </div>
@@ -1345,11 +1483,10 @@
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Quiénes somos</div>
-          <h2>Arquitectura de servicio, visión de negocio y ejecución aplicada</h2>
+          <h2>Una visión de sistema para unir cliente, negocio y automatización</h2>
           <p class="lead">
-            Kukulcán IA se orienta al diseño de soluciones de inteligencia aplicada con criterios de utilidad real,
-            integración efectiva y escalabilidad. Su planteamiento combina estructura analítica, automatización,
-            identidad de marca y foco en cliente para construir sistemas funcionales y gobernables.
+            Kukulcán IA desarrolla un territorio de marca y un modelo de servicios de inteligencia aplicada
+            que combina estructura analítica, activación técnica, automatización y orientación a cliente.
           </p>
         </div>
       </div>
@@ -1359,16 +1496,15 @@
       <div class="container">
         <div class="section-header">
           <div class="eyebrow">Contacto</div>
-          <h2>Canales de consulta y activación</h2>
+          <h2>Canales complementarios de consulta y relación</h2>
           <p class="lead">
-            Este espacio permite canalizar solicitudes de diagnóstico, consultas sobre neuronas, necesidades de
-            implantación o requerimientos de información adicional. No obstante, la vía preferente de inicio sigue
-            siendo NeXus.
+            Este bloque complementa la activación principal de NeXus y permite canalizar solicitudes,
+            necesidades de implantación y requerimientos de información adicional.
           </p>
         </div>
 
         <div class="contact-grid">
-          <div class="card">
+          <div class="panel">
             <h3>Formulario institucional</h3>
             <form class="contact-form" action="#" method="post">
               <div class="form-grid">
@@ -1402,7 +1538,7 @@
                   <label for="motivo">Motivo de consulta</label>
                   <select id="motivo" name="motivo">
                     <option value="">Seleccionar</option>
-                    <option>NeXus y Customer Centric</option>
+                    <option>NeXus y activación inicial</option>
                     <option>Neuronas de negocio</option>
                     <option>Automatización e IA</option>
                     <option>Agentes conversacionales</option>
@@ -1425,27 +1561,25 @@
           </div>
 
           <aside class="contact-side">
-            <div class="card">
+            <div class="panel">
               <h3>Canales alternativos</h3>
-              <p>
-                También es posible establecer contacto directo por correo electrónico, mensajería o agenda.
-              </p>
+              <p>También es posible establecer contacto directo por correo electrónico, mensajería o agenda.</p>
             </div>
 
-            <div class="contact-quick">
-              <a href="mailto:info@kukulcanai.com">
-                <span>Email</span>
-                <strong>info@kukulcanai.com</strong>
-              </a>
-              <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer">
-                <span>WhatsApp</span>
-                <strong>+34 600 000 000</strong>
-              </a>
-              <a href="https://calendly.com/tu-enlace" target="_blank" rel="noopener noreferrer">
-                <span>Agenda</span>
-                <strong>Reservar reunión</strong>
-              </a>
-            </div>
+            <a class="contact-link" href="mailto:info@kukulcanai.com">
+              <span>Email</span>
+              <strong>info@kukulcanai.com</strong>
+            </a>
+
+            <a class="contact-link" href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer">
+              <span>WhatsApp</span>
+              <strong>+34 600 000 000</strong>
+            </a>
+
+            <a class="contact-link" href="https://calendly.com/tu-enlace" target="_blank" rel="noopener noreferrer">
+              <span>Agenda</span>
+              <strong>Reservar reunión</strong>
+            </a>
           </aside>
         </div>
       </div>
@@ -1454,19 +1588,22 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div class="brand">
-        <img src="Logo_Kukulcan_AI.v2.png" alt="Logo Kukulcán IA" />
+      <a href="#inicio" class="brand" aria-label="Kukulcán IA">
+        <div class="brand-logo-wrap">
+          <img id="footerKukulcanLogo" alt="Logo Kukulcán IA" />
+        </div>
         <div class="brand-text">
           <strong>Kukulcán IA</strong>
-          <span>Inteligencia aplicada · NeXus como punto de entrada</span>
+          <span>NeXus como punto de entrada</span>
         </div>
-      </div>
+      </a>
 
       <div class="footer-links">
         <a href="#que-es">Qué es</a>
         <a href="#nexus">NeXus</a>
         <a href="#catalogo">Catálogo</a>
         <a href="#codigo-etico">Código ético</a>
+        <a href="#faqs">FAQs</a>
         <a href="#contacto">Contacto</a>
         <a href="#">Aviso legal</a>
         <a href="#">Privacidad</a>
@@ -1475,118 +1612,155 @@
     </div>
   </footer>
 
-  <button class="floating-nexus" onclick="openModal('nexusModal')" aria-label="Abrir NeXus">
-    NeXus
+  <button class="floating-nexus" type="button" onclick="openModal('nexusModal')" aria-label="Abrir NeXus">
+    <img id="floatingNexusLogo" alt="Logo NeXus" />
+    <span>NeXus</span>
   </button>
 
-  <!-- Modal NeXus -->
+  <!-- Modal principal NeXus -->
   <div class="modal" id="nexusModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-header">
         <div class="modal-title">
-          <strong>NeXus</strong>
-          <span>Primer nodo · Customer Centric · activación inicial</span>
+          <img id="modalNexusLogo" alt="Logo NeXus" />
+          <div class="modal-title-text">
+            <strong>NeXus</strong>
+            <span>Primer nodo · activación inicial · customer centric</span>
+          </div>
         </div>
-        <button class="modal-close" onclick="closeModal('nexusModal')" aria-label="Cerrar">×</button>
+        <button class="modal-close" type="button" aria-label="Cerrar" onclick="closeModal('nexusModal')">×</button>
       </div>
 
       <div class="modal-body">
-        <div class="embed-shell">
-          <div class="embed-info">
+        <aside class="chat-side">
+          <img id="chatSideNexusLogo" class="mini-logo" alt="Logo NeXus" />
+          <div>
             <h3>Iniciar el recorrido</h3>
             <p>
-              Este espacio debe cargar el agente principal de NeXus desde n8n. Su función consiste en abrir la
-              primera conversación de contexto, cliente y activación.
+              Este agente constituye la entrada principal al sistema.
+              Su conversación inicial orienta la activación hacia cliente, retorno y despliegue posterior.
             </p>
-            <ul>
-              <li>Inicio del viaje hacia automatización e IA aplicada</li>
-              <li>Primera neurona: Customer Centric</li>
-              <li>Orientación a ROI, productividad y experiencia de cliente</li>
-              <li>Base para despliegue de nuevas neuronas</li>
-            </ul>
           </div>
+          <ul>
+            <li>Lectura inicial del contexto</li>
+            <li>Customer centric como primera neurona</li>
+            <li>ROI, productividad y capacidad de activación</li>
+            <li>Base para automatización y nuevas neuronas</li>
+          </ul>
+          <div class="powered-by">Powered by Kukulcán IA</div>
+        </aside>
 
-          <div class="embed-stage">
-            <iframe id="nexusFrame" title="NeXus Chat"></iframe>
-            <div class="embed-placeholder" id="nexusPlaceholder">
-              <div>
-                <strong style="display:block; margin-bottom:10px; color:#fff;">Pendiente de conectar NeXus</strong>
-                Sustituir la constante <code>NEXUS_EMBED_URL</code> por la URL real del chat embebido de n8n.
-              </div>
+        <section class="chat-main">
+          <div class="chat-messages" id="nexusMessages">
+            <div class="message bot">
+              Bienvenido a NeXus. Este espacio abre la conversación inicial del recorrido Kukulcán IA.
+            </div>
+            <div class="message system">
+              El chat enviará cada mensaje al webhook configurado en <strong>NEXUS_WEBHOOK_URL</strong>.
             </div>
           </div>
-        </div>
+
+          <div class="chat-input-wrap">
+            <form class="chat-form" id="nexusForm">
+              <textarea
+                id="nexusInput"
+                placeholder="Escriba aquí su consulta inicial sobre cliente, negocio, automatización o activación"
+                required
+              ></textarea>
+              <button class="btn btn-primary chat-send" type="submit">Enviar</button>
+            </form>
+            <div class="chat-status" id="nexusStatus"></div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
 
-  <!-- Modal FAQ -->
+  <!-- Modal FAQs -->
   <div class="modal" id="faqModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-header">
         <div class="modal-title">
-          <strong>Agente FAQs</strong>
-          <span>Atención automatizada · información institucional</span>
+          <img id="modalFaqLogo" alt="Logo Kukulcán IA" />
+          <div class="modal-title-text">
+            <strong>Agente FAQs</strong>
+            <span>Atención informativa · orientación institucional</span>
+          </div>
         </div>
-        <button class="modal-close" onclick="closeModal('faqModal')" aria-label="Cerrar">×</button>
+        <button class="modal-close" type="button" aria-label="Cerrar" onclick="closeModal('faqModal')">×</button>
       </div>
 
       <div class="modal-body">
-        <div class="embed-shell">
-          <div class="embed-info">
-            <h3>Canal de información y atención</h3>
+        <aside class="chat-side">
+          <img id="chatSideFaqLogo" class="mini-logo" alt="Logo Kukulcán IA" />
+          <div>
+            <h3>Canal de orientación</h3>
             <p>
-              Este modal debe cargar un segundo agente desde n8n, independiente de NeXus, orientado a preguntas
-              frecuentes y acompañamiento informativo.
+              Este agente acompaña la navegación informativa, responde preguntas frecuentes y orienta sobre servicios,
+              catálogo y forma de inicio.
             </p>
-            <ul>
-              <li>Consultas frecuentes</li>
-              <li>Orientación sobre catálogo y servicios</li>
-              <li>Acompañamiento durante la navegación</li>
-              <li>Derivación a NeXus cuando proceda</li>
-            </ul>
           </div>
+          <ul>
+            <li>Consultas frecuentes</li>
+            <li>Orientación sobre servicios y neuronas</li>
+            <li>Acompañamiento durante la navegación</li>
+            <li>Derivación a NeXus cuando proceda</li>
+          </ul>
+        </aside>
 
-          <div class="embed-stage">
-            <iframe id="faqFrame" title="FAQ Chat"></iframe>
-            <div class="embed-placeholder" id="faqPlaceholder">
-              <div>
-                <strong style="display:block; margin-bottom:10px; color:#fff;">Pendiente de conectar FAQs</strong>
-                Sustituir la constante <code>FAQ_EMBED_URL</code> por la URL real del segundo chat embebido de n8n.
-              </div>
+        <section class="chat-main">
+          <div class="chat-messages" id="faqMessages">
+            <div class="message bot">
+              Bienvenido al agente FAQs. Este espacio resuelve dudas frecuentes y ofrece orientación general.
+            </div>
+            <div class="message system">
+              El chat enviará cada mensaje al webhook configurado en <strong>FAQS_WEBHOOK_URL</strong>.
             </div>
           </div>
-        </div>
+
+          <div class="chat-input-wrap">
+            <form class="chat-form" id="faqForm">
+              <textarea
+                id="faqInput"
+                placeholder="Escriba aquí su consulta sobre servicios, catálogo, contacto o funcionamiento"
+                required
+              ></textarea>
+              <button class="btn btn-primary chat-send" type="submit">Enviar</button>
+            </form>
+            <div class="chat-status" id="faqStatus"></div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
 
   <script>
-    /*
-      CONFIGURACION DE EMBED N8N
-      Reemplaza estas URLs por las reales.
-      Lo mas estable para esta primera version es usar iframes.
-      Si luego vuestro chat de n8n usa script/widget en lugar de iframe,
-      se cambia solo esta parte.
-    */
-    const NEXUS_EMBED_URL = "";
-    const FAQ_EMBED_URL = "";
+    function setImage(id, src, fallbackAlt) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.src = src;
+      el.alt = fallbackAlt || el.alt || "";
+    }
 
-    function setupEmbeds() {
-      const nexusFrame = document.getElementById("nexusFrame");
-      const faqFrame = document.getElementById("faqFrame");
-      const nexusPlaceholder = document.getElementById("nexusPlaceholder");
-      const faqPlaceholder = document.getElementById("faqPlaceholder");
+    function initLogos() {
+      const kukulcanIds = [
+        "headerKukulcanLogo",
+        "heroKukulcanLogo",
+        "footerKukulcanLogo",
+        "modalFaqLogo",
+        "chatSideFaqLogo"
+      ];
 
-      if (NEXUS_EMBED_URL && nexusFrame) {
-        nexusFrame.src = NEXUS_EMBED_URL;
-        if (nexusPlaceholder) nexusPlaceholder.style.display = "none";
-      }
+      const nexusIds = [
+        "heroNexusLogo",
+        "slabNexusLogo",
+        "floatingNexusLogo",
+        "modalNexusLogo",
+        "chatSideNexusLogo"
+      ];
 
-      if (FAQ_EMBED_URL && faqFrame) {
-        faqFrame.src = FAQ_EMBED_URL;
-        if (faqPlaceholder) faqPlaceholder.style.display = "none";
-      }
+      kukulcanIds.forEach((id) => setImage(id, KUKULCAN_LOGO_URL, "Logo Kukulcán IA"));
+      nexusIds.forEach((id) => setImage(id, NEXUS_LOGO_URL, "Logo KAI NeXus"));
     }
 
     function openModal(id) {
@@ -1609,18 +1783,17 @@
       }
     }
 
-    document.addEventListener("click", function (e) {
-      const modal = e.target.classList.contains("modal") ? e.target : null;
-      if (modal) {
-        modal.classList.remove("active");
-        modal.setAttribute("aria-hidden", "true");
+    document.addEventListener("click", function (event) {
+      if (event.target.classList.contains("modal")) {
+        event.target.classList.remove("active");
+        event.target.setAttribute("aria-hidden", "true");
         const anyOpen = document.querySelector(".modal.active");
         if (!anyOpen) document.body.style.overflow = "";
       }
     });
 
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
         document.querySelectorAll(".modal.active").forEach((modal) => {
           modal.classList.remove("active");
           modal.setAttribute("aria-hidden", "true");
@@ -1629,7 +1802,146 @@
       }
     });
 
-    setupEmbeds();
+    function appendMessage(containerId, text, role) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const div = document.createElement("div");
+      div.className = "message " + role;
+      div.textContent = text;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function setStatus(statusId, text) {
+      const el = document.getElementById(statusId);
+      if (el) el.textContent = text || "";
+    }
+
+    /*
+      ============================================================
+      AJUSTE DE RESPUESTA DE N8N
+      ============================================================
+      Este código intenta leer varias formas comunes de respuesta.
+      Si tu workflow devuelve otro JSON, ajusta extractReply().
+      ============================================================
+    */
+    function extractReply(data) {
+      if (typeof data === "string") return data;
+
+      if (data.reply) return data.reply;
+      if (data.message) return data.message;
+      if (data.output) return data.output;
+      if (data.text) return data.text;
+      if (data.response) return data.response;
+      if (data.answer) return data.answer;
+
+      if (Array.isArray(data) && data.length > 0) {
+        const first = data[0];
+        if (typeof first === "string") return first;
+        return first.reply || first.message || first.output || first.text || first.response || first.answer || JSON.stringify(first, null, 2);
+      }
+
+      return JSON.stringify(data, null, 2);
+    }
+
+    async function sendToWebhook(options) {
+      const {
+        formId,
+        inputId,
+        messagesId,
+        statusId,
+        webhookUrl,
+        agentName
+      } = options;
+
+      const form = document.getElementById(formId);
+      const input = document.getElementById(inputId);
+
+      if (!form || !input) return;
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const text = input.value.trim();
+        if (!text) return;
+
+        appendMessage(messagesId, text, "user");
+        input.value = "";
+        setStatus(statusId, "Enviando...");
+
+        if (!webhookUrl || webhookUrl.includes("PON_AQUI")) {
+          appendMessage(
+            messagesId,
+            "Falta configurar la URL del webhook de " + agentName + ". Revise la constante correspondiente en la parte superior del HTML.",
+            "bot"
+          );
+          setStatus(statusId, "Webhook pendiente de configurar.");
+          return;
+        }
+
+        try {
+          const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              message: text,
+              text: text,
+              query: text,
+              agent: agentName,
+              source: "web",
+              page: window.location.href,
+              timestamp: new Date().toISOString()
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+          }
+
+          const contentType = response.headers.get("content-type") || "";
+          let data;
+
+          if (contentType.includes("application/json")) {
+            data = await response.json();
+          } else {
+            data = await response.text();
+          }
+
+          const reply = extractReply(data);
+          appendMessage(messagesId, reply || "Respuesta recibida.", "bot");
+          setStatus(statusId, "Respuesta recibida.");
+        } catch (error) {
+          appendMessage(
+            messagesId,
+            "No ha sido posible conectar con el agente en este momento. Verifique la URL del webhook, CORS y el formato de respuesta del workflow en n8n.",
+            "bot"
+          );
+          setStatus(statusId, "Error de conexión: " + error.message);
+        }
+      });
+    }
+
+    initLogos();
+
+    sendToWebhook({
+      formId: "nexusForm",
+      inputId: "nexusInput",
+      messagesId: "nexusMessages",
+      statusId: "nexusStatus",
+      webhookUrl: NEXUS_WEBHOOK_URL,
+      agentName: "NeXus"
+    });
+
+    sendToWebhook({
+      formId: "faqForm",
+      inputId: "faqInput",
+      messagesId: "faqMessages",
+      statusId: "faqStatus",
+      webhookUrl: FAQS_WEBHOOK_URL,
+      agentName: "FAQs"
+    });
   </script>
 </body>
 </html>
