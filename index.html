@@ -3,25 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kukulcán IA · Inteligencia Artificial Aplicada</title>
-
-  <meta
-    name="description"
-    content="Kukulcán IA convierte datos operativos y comerciales en decisiones accionables de alto valor mediante neuronas de negocio y servicios de inteligencia artificial aplicada."
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
-    rel="stylesheet"
-  />
-
+  <title>Kukulcán IA — Neuronas de Inteligencia Artificial Aplicada</title>
+  <meta name="description" content="Kukulcán IA convierte datos operativos y comerciales en decisiones accionables de alto valor mediante neuronas de negocio y servicios de inteligencia artificial aplicada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   <style>
     :root {
       --bg-1: #06111f;
@@ -33,15 +20,18 @@
       --cyan-2: #45c5ff;
       --text: #eaf4ff;
       --muted: #b8cadb;
+      --stone: #8fa4b8;
+      --alert: #f3b34c;
       --card: rgba(10, 25, 45, 0.58);
+      --glass: rgba(255, 255, 255, 0.05);
       --shadow: 0 20px 50px rgba(0, 0, 0, 0.32);
       --radius: 22px;
+      --radius-sm: 14px;
       --max: 1240px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
@@ -53,6 +43,33 @@
         linear-gradient(180deg, var(--bg-1), var(--bg-2) 55%, #071120 100%);
       min-height: 100vh;
       overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background-image:
+        linear-gradient(rgba(139, 217, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 217, 255, 0.035) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: radial-gradient(circle at center, black 52%, transparent 100%);
+      opacity: 0.55;
+    }
+
+    body::after {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.22) 0.7px, transparent 1px),
+        radial-gradient(circle, rgba(139,217,255,0.15) 0.7px, transparent 1px);
+      background-size: 140px 140px, 210px 210px;
+      background-position: 0 0, 50px 90px;
+      opacity: 0.2;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -98,6 +115,10 @@
       flex: 0 0 auto;
     }
 
+    .brand-copy {
+      min-width: 0;
+    }
+
     .brand-copy strong {
       display: block;
       font-size: 0.96rem;
@@ -118,19 +139,17 @@
       align-items: center;
     }
 
-    .menu a,
-    .menu button {
+    .menu a {
       font-size: 0.92rem;
       color: var(--muted);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
+      transition: color .2s ease, text-shadow .2s ease;
+      white-space: nowrap;
     }
 
     .menu a:hover,
-    .menu button:hover {
+    .menu a:focus-visible {
       color: var(--text);
+      text-shadow: 0 0 18px rgba(139,217,255,.25);
     }
 
     .menu .nexus-link {
@@ -142,7 +161,19 @@
     }
 
     .hero {
+      position: relative;
       padding: 86px 0 56px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(69,197,255,.10), transparent 28%),
+        linear-gradient(180deg, transparent, rgba(6,17,31,.28));
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -150,6 +181,8 @@
       grid-template-columns: 1.08fr 0.92fr;
       gap: 28px;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -202,11 +235,12 @@
       font-weight: 600;
       cursor: pointer;
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-      font-family: inherit;
     }
 
     .btn:hover,
-    .link-btn:hover {
+    .link-btn:hover,
+    .btn:focus-visible,
+    .link-btn:focus-visible {
       transform: translateY(-1px);
     }
 
@@ -223,7 +257,8 @@
     }
 
     .hero-panel {
-      min-height: 520px;
+      position: relative;
+      min-height: 560px;
       border-radius: 28px;
       border: 1px solid var(--line);
       background:
@@ -231,9 +266,106 @@
         radial-gradient(circle at 45% 56%, rgba(69,197,255,.10), transparent 28%),
         linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
-      position: relative;
       overflow: hidden;
+      isolation: isolate;
     }
+
+    .hero-panel::before,
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      pointer-events: none;
+    }
+
+    .hero-panel::before {
+      top: 8%;
+      right: -4%;
+      width: 58%;
+      height: 58%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,217,255,.18), transparent 66%);
+      filter: blur(8px);
+    }
+
+    .hero-panel::after {
+      left: 5%;
+      bottom: 5%;
+      width: 90%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(139,217,255,.28), transparent);
+      box-shadow: 0 0 16px rgba(139,217,255,.22);
+    }
+
+    .constellation,
+    .glyph-layer,
+    .platform,
+    .kukulcan-mark {
+      position: absolute;
+    }
+
+    .constellation {
+      inset: 0;
+      opacity: 0.95;
+    }
+
+    .glyph-layer {
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 0 34%, rgba(139,217,255,.07) 34% 35%, transparent 35% 100%),
+        linear-gradient(25deg, transparent 0 55%, rgba(139,217,255,.06) 55% 56%, transparent 56% 100%);
+      mix-blend-mode: screen;
+    }
+
+    .platform {
+      bottom: 28px;
+      width: 42%;
+      height: 148px;
+      border-radius: 20px 20px 12px 12px;
+      border: 1px solid rgba(164, 194, 220, .18);
+      background:
+        linear-gradient(180deg, rgba(150,174,196,.15), rgba(90,116,141,.22)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 2px, transparent 2px 18px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 2px, transparent 2px 18px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 18px 45px rgba(0,0,0,.22);
+    }
+
+    .platform.left { left: -4%; transform: perspective(800px) rotateY(18deg); }
+    .platform.right { right: -4%; transform: perspective(800px) rotateY(-18deg); }
+
+    .kukulcan-mark {
+      top: 4%;
+      right: 4%;
+      width: 52%;
+      aspect-ratio: 1;
+      opacity: 0.2;
+      filter: drop-shadow(0 0 28px rgba(139,217,255,.10));
+    }
+
+    .hud-card {
+      position: absolute;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(4, 16, 27, 0.56);
+      backdrop-filter: blur(10px);
+      padding: 14px 16px;
+      box-shadow: 0 18px 35px rgba(0,0,0,.2);
+    }
+
+    .hud-card small {
+      display: block;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 6px;
+    }
+
+    .hud-card strong { font-size: 1.05rem; }
+    .hud-card p { margin: 8px 0 0; font-size: .88rem; line-height: 1.55; }
+
+    .hud-a { left: 26px; top: 28px; width: 230px; }
+    .hud-b { right: 26px; top: 182px; width: 220px; }
+    .hud-c { left: 54px; bottom: 44px; width: 250px; }
 
     .future-node {
       position: absolute;
@@ -251,6 +383,20 @@
       box-shadow: 0 0 38px rgba(69,197,255,.15), inset 0 0 22px rgba(139,217,255,.08);
       font-weight: 700;
       letter-spacing: .08em;
+    }
+
+    .future-node::before,
+    .future-node::after {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      border-radius: 50%;
+      border: 1px dashed rgba(139,217,255,.16);
+    }
+
+    .future-node::after {
+      inset: -40px;
+      opacity: .45;
     }
 
     .section {
@@ -300,6 +446,28 @@
       overflow: hidden;
     }
 
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 22px;
+      width: 88px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(139,217,255,.7), transparent);
+    }
+
+    .icon-chip {
+      width: 46px;
+      height: 46px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 14px;
+      border: 1px solid var(--line-strong);
+      background: rgba(69,197,255,.07);
+      margin-bottom: 16px;
+      color: var(--cyan);
+    }
+
     .card h3 {
       margin: 0 0 10px;
       font-size: 1.04rem;
@@ -312,6 +480,11 @@
       font-size: 0.95rem;
     }
 
+    .card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
     .band {
       margin: 24px 0 8px;
       padding: 22px;
@@ -322,6 +495,18 @@
       grid-template-columns: 1.1fr 0.9fr;
       gap: 20px;
       align-items: center;
+    }
+
+    .band strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .band p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .tag-list {
@@ -342,6 +527,43 @@
       background: rgba(255,255,255,.03);
       font-size: .9rem;
     }
+
+    .catalog-item,
+    .step-item,
+    .service-item,
+    .faq-item,
+    .team-item,
+    .contact-item {
+      height: 100%;
+    }
+
+    .catalog-item span,
+    .step-number,
+    .faq-q {
+      color: var(--cyan);
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .ethics-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .ethics-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(139,217,255,.10);
+    }
+
+    .ethics-row strong { color: var(--text); }
+    .ethics-row p { margin: 0; }
 
     .contact-wrap {
       display: grid;
@@ -365,7 +587,8 @@
     }
 
     .field input,
-    .field textarea {
+    .field textarea,
+    .field select {
       width: 100%;
       border: 1px solid var(--line);
       background: rgba(5, 14, 26, .68);
@@ -374,6 +597,13 @@
       padding: 14px 15px;
       font: inherit;
       outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--line-strong);
+      box-shadow: 0 0 0 4px rgba(69,197,255,.08);
     }
 
     .field textarea {
@@ -397,155 +627,21 @@
       background: rgba(255,255,255,.03);
     }
 
-    /* MODAL */
-    .nexus-modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(3, 10, 18, 0.66);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-    }
-
-    .nexus-modal.active {
-      display: flex;
-    }
-
-    .nexus-modal-dialog {
-      width: min(1080px, 100%);
-      height: min(84vh, 760px);
-      border-radius: 28px;
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
       overflow: hidden;
-      background: linear-gradient(180deg, #0c213d 0%, #071524 100%);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 28px 90px rgba(0,0,0,0.45);
-      display: grid;
-      grid-template-rows: auto 1fr;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
-    .nexus-modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 22px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .nexus-modal-brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .nexus-modal-brand-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-    }
-
-    .nexus-modal-brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .nexus-modal-brand-text strong {
-      display: block;
-      font-size: 1rem;
-      color: #fff;
-    }
-
-    .nexus-modal-brand-text span {
-      display: block;
-      color: #a9bdd5;
-      font-size: 0.88rem;
-      margin-top: 2px;
-    }
-
-    .nexus-modal-close {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      color: #fff;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    .nexus-modal-body {
-      padding: 18px;
-      min-height: 0;
-      display: grid;
-    }
-
-    .chat-shell {
-      min-height: 0;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-    }
-
-    #n8n-chat {
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-    }
-
-    /* OCULTAR LA BURBUJA/LAUNCHER FLOTANTE */
-    .n8n-chat-launcher {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-
-    /* ESTILO DEL CHAT EMBEBIDO */
-    #n8n-chat,
-    #n8n-chat * {
-      font-family: 'Inter', system-ui, sans-serif !important;
-    }
-
-    .n8n-chat-window,
-    [class*="chat-window"] {
-      background: #06111f !important;
-      color: #eaf4ff !important;
-    }
-
-    .n8n-chat-header,
-    [class*="chat-header"] {
-      background: #0a1a2f !important;
-      color: #eaf4ff !important;
-      border-bottom: 1px solid rgba(119, 188, 255, 0.18) !important;
-    }
-
-    .n8n-chat-input textarea,
-    .n8n-chat-input input,
-    [class*="chat-input"] textarea,
-    [class*="chat-input"] input {
-      background: rgba(5, 14, 26, .68) !important;
-      color: #eaf4ff !important;
-      border: 1px solid rgba(119, 188, 255, 0.18) !important;
-    }
-
-    .n8n-chat-send-button,
-    [class*="send-button"],
-    [class*="chat-input-send-button"] {
-      background: linear-gradient(180deg, #a6e8ff, #63d4ff) !important;
-      color: #04101b !important;
-      border: none !important;
-      box-shadow: 0 12px 28px rgba(69, 197, 255, 0.22) !important;
+    #nexus-chat-anchor {
+      position: relative;
+      top: -90px;
     }
 
     @media (max-width: 1120px) {
@@ -559,6 +655,10 @@
 
       .grid-2 {
         grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        min-height: 500px;
       }
 
       .tag-list {
@@ -582,8 +682,11 @@
       }
 
       .hero h1 { max-width: 12ch; }
+      .hero-panel { min-height: 420px; }
+      .future-node { width: 112px; height: 112px; font-size: .9rem; }
+      .hud-a, .hud-b, .hud-c { width: min(220px, calc(100% - 34px)); }
+      .ethics-row { grid-template-columns: 1fr; }
       .footer-card { flex-direction: column; align-items: flex-start; }
-      .nexus-modal-dialog { height: 90vh; }
     }
 
     @media (max-width: 560px) {
@@ -591,6 +694,9 @@
       .hero h1 { font-size: 2.35rem; }
       .hero p { font-size: .98rem; }
       .card, .band { padding: 18px; }
+      .hero-panel { min-height: 380px; }
+      .platform { height: 100px; }
+      .kukulcan-mark { width: 58%; }
     }
   </style>
 </head>
@@ -599,8 +705,7 @@
     <div class="container nav">
       <a class="brand" href="#inicio" aria-label="Kukulcán IA">
         <div class="brand-logo">
-          <!-- CAMBIA AQUÍ LA RUTA DEL LOGO -->
-          <img src="logo-kukulcan-ia.png" alt="Logo Kukulcán IA">
+          <img src="logo-kukulcan-ia.png" alt="Logo Kukulcán IA" onerror="this.style.display='none'; this.parentElement.innerHTML='<svg viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\' aria-hidden=\'true\'><defs><linearGradient id=\'g\' x1=\'0\' x2=\'1\'><stop offset=\'0%\' stop-color=\'#8bd9ff\'/><stop offset=\'100%\' stop-color=\'#45c5ff\'/></linearGradient></defs><rect x=\'0\' y=\'0\' width=\'100\' height=\'100\' rx=\'18\' fill=\'#071423\'/><path d=\'M24 61c9-3 14-11 17-18 4-9 11-16 22-16 8 0 14 3 17 8-5-1-10 0-14 2 8 1 14 8 14 16 0 10-9 18-21 18-9 0-16-4-21-8-3 7-11 12-22 12 5-4 8-9 8-14z\' fill=\'url(#g)\' opacity=\'.9'/><circle cx=\'71\' cy=\'43\' r=\'2.5\' fill=\'#eaf4ff\'/></svg>'">
         </div>
         <div class="brand-copy">
           <strong>Kukulcán IA</strong>
@@ -618,7 +723,7 @@
         <a href="#faqs">Agente FAQs</a>
         <a href="#quienes-somos">Quiénes somos</a>
         <a href="#contacto">Contacto</a>
-        <button class="nexus-link" id="navNexusBtn" type="button">NeXus</button>
+        <a href="#nexus-chat-anchor" class="nexus-link" id="navNexusLink">NeXus</a>
       </nav>
     </div>
   </header>
@@ -629,11 +734,7 @@
         <div>
           <div class="eyebrow">Kukulcán IA · Hub de inteligencia aplicada</div>
           <h1>Neuronas de Inteligencia Artificial Aplicada</h1>
-          <p>
-            Somos un Hub de Inteligencia Artificial que convertimos los datos operativos y comerciales
-            en decisiones accionables y de alto valor, con foco en máximo ROI, satisfacción del cliente
-            y desarrollo del talento.
-          </p>
+          <p>Somos un Hub de Inteligencia Artificial que convertimos los datos operativos y comerciales en decisiones accionables y de alto valor, con foco en máximo ROI, satisfacción del cliente y desarrollo del talento.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
             <button class="btn btn-secondary" id="heroNexusBtn" type="button">Acceso a NeXus</button>
@@ -641,7 +742,65 @@
         </div>
 
         <div class="hero-panel" aria-hidden="true">
-          <div class="future-node">NeXus</div>
+          <svg class="constellation" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lineGlow" x1="0" x2="1">
+                <stop offset="0%" stop-color="#8bd9ff" stop-opacity="0"/>
+                <stop offset="40%" stop-color="#8bd9ff" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#8bd9ff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g opacity="0.75">
+              <path d="M162 430 C258 398, 308 354, 400 402" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
+              <path d="M400 402 C510 456, 615 416, 692 350" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
+              <path d="M406 404 C442 284, 542 206, 666 176" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
+              <path d="M392 398 C294 286, 232 232, 124 214" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
+              <path d="M392 405 C300 488, 204 566, 106 598" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
+              <path d="M408 410 C508 492, 578 574, 694 614" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
+            </g>
+            <g fill="#8bd9ff">
+              <circle cx="124" cy="214" r="6"/><circle cx="162" cy="430" r="6"/><circle cx="106" cy="598" r="6"/>
+              <circle cx="400" cy="402" r="8"/><circle cx="666" cy="176" r="6"/><circle cx="692" cy="350" r="6"/>
+              <circle cx="694" cy="614" r="6"/>
+            </g>
+            <g stroke="#8bd9ff" stroke-width="1" opacity="0.35">
+              <circle cx="400" cy="402" r="108" fill="none"/>
+              <circle cx="400" cy="402" r="168" fill="none" stroke-dasharray="6 10"/>
+            </g>
+          </svg>
+
+          <div class="glyph-layer"></div>
+          <div class="platform left"></div>
+          <div class="platform right"></div>
+
+          <svg class="kukulcan-mark" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="kgrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8bd9ff"/>
+                <stop offset="100%" stop-color="#5caad5"/>
+              </linearGradient>
+            </defs>
+            <path d="M430 104c46 9 74 45 74 90 0 44-24 83-70 103 16 36 17 78-2 117-33 68-117 97-196 67-48-18-87-59-107-107 18 11 41 18 67 18 55 0 101-30 119-73-65-1-116-46-116-104 0-61 55-111 124-111 42 0 79 18 103 46-17-2-35 1-51 10 26 1 45 19 55 44z" fill="none" stroke="url(#kgrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M438 134c-12 0-24 4-34 11 18 5 28 18 31 36 26-7 41-25 41-44 0-2 0-4-1-6-10 2-23 3-37 3z" fill="url(#kgrad)" opacity="0.85"/>
+            <circle cx="442" cy="149" r="6" fill="#eaf4ff"/>
+          </svg>
+
+          <div class="hud-card hud-a">
+            <small>Forecasting</small>
+            <strong>Ruta recta hacia el futuro</strong>
+            <p>Modelización, previsión, rendimiento esperado y activación.</p>
+          </div>
+          <div class="hud-card hud-b">
+            <small>Foresight</small>
+            <strong>Escenarios curvos</strong>
+            <p>Alternativas, sensibilidad, alertas tempranas y decisión.</p>
+          </div>
+          <div class="hud-card hud-c">
+            <small>Control</small>
+            <strong>Dato · Trazabilidad · Valor</strong>
+            <p>Neuroarquitectura modular con foco en decisiones accionables.</p>
+          </div>
+          <div class="future-node">FUTURE</div>
         </div>
       </div>
     </section>
@@ -649,30 +808,41 @@
     <section class="section" id="neuronas">
       <div class="container">
         <div class="section-head">
-          <div><h2>Neuronas de Negocio</h2></div>
-          <p>
-            Las neuronas son módulos independientes de inteligencia aplicada. Cada neurona define su contrato de datos,
-            aplica un proceso analítico y entrega outputs listos para activar.
-          </p>
+          <div>
+            <h2>Neuronas de Negocio</h2>
+          </div>
+          <p>Las neuronas son módulos independientes de inteligencia aplicada. Cada neurona define su contrato de datos, aplica un proceso analítico (modelo/algoritmo) y entrega outputs listos para activar.</p>
         </div>
 
         <div class="grid-4">
           <article class="card">
+            <div class="icon-chip">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 10V7a6 6 0 1 1 12 0v3"/><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M12 14v2"/></svg>
+            </div>
             <h3>Contrato de datos</h3>
             <p>Modelo de entrada, reglas de negocio, validación estructural y criterios de calidad desde origen.</p>
           </article>
 
           <article class="card">
+            <div class="icon-chip">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 18h16"/><path d="M7 15V9"/><path d="M12 15V5"/><path d="M17 15v-3"/></svg>
+            </div>
             <h3>Proceso analítico</h3>
             <p>Aplicación de modelos, scoring, clasificación, segmentación o inferencia sobre datasets gobernados.</p>
           </article>
 
           <article class="card">
+            <div class="icon-chip">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h4v7H5z"/><path d="M10 7h4v12h-4z"/><path d="M15 3h4v16h-4z"/></svg>
+            </div>
             <h3>Outputs e insights</h3>
             <p>Resultados legibles por negocio: prioridades, alertas, recomendaciones, oportunidades y evidencias.</p>
           </article>
 
           <article class="card">
+            <div class="icon-chip">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/><path d="m6.3 17.7-1.4 1.4"/></svg>
+            </div>
             <h3>Personalización destino</h3>
             <p>Activación sobre CRM, ERP, automatizaciones, cuadros de mando o flujos operativos conectados.</p>
           </article>
@@ -681,10 +851,7 @@
         <div class="band">
           <div>
             <strong>Arquitectura modular, activable y trazable</strong>
-            <p>
-              Cada neurona puede desplegarse de forma independiente o integrarse dentro de una malla
-              de inteligencia con gobernanza, conectividad y trazabilidad extremo a extremo.
-            </p>
+            <p>Cada neurona puede desplegarse de forma independiente o integrarse dentro de una malla de inteligencia con gobernanza, conectividad y trazabilidad extremo a extremo.</p>
           </div>
           <div class="tag-list">
             <span class="tag">Datos</span>
@@ -702,21 +869,21 @@
       <div class="container">
         <div class="section-head">
           <div><h2>Catálogo</h2></div>
-          <p>
-            Bloques de oferta preparados para evolucionar a catálogo definitivo. Sustituye o amplía estas tarjetas
-            por el portafolio real de neuronas cuando lo cierres funcionalmente.
-          </p>
+          <p>Bloques de oferta preparados para evolucionar a catálogo definitivo. Sustituye o amplía estas tarjetas por el portafolio real de neuronas cuando lo cierres funcionalmente.</p>
         </div>
         <div class="grid-3">
-          <article class="card">
+          <article class="card catalog-item">
+            <span>Neurona 01</span>
             <h3>Customer Intelligence</h3>
             <p>Segmentación, propensión, comportamiento, valor y activación sobre clientes y cuentas.</p>
           </article>
-          <article class="card">
+          <article class="card catalog-item">
+            <span>Neurona 02</span>
             <h3>Operaciones y Prioridad</h3>
-            <p>Priorización de incidencias, eficiencia operativa, alertas y seguimiento de ejecución.</p>
+            <p>Priorización de incidencias, SPO, eficiencia operativa, alertas y seguimiento de ejecución.</p>
           </article>
-          <article class="card">
+          <article class="card catalog-item">
+            <span>Neurona 03</span>
             <h3>Producto y Rentabilidad</h3>
             <p>Análisis ABCD, márgenes, rotación, demanda y escenarios para toma de decisiones.</p>
           </article>
@@ -728,20 +895,21 @@
       <div class="container">
         <div class="section-head">
           <div><h2>Cómo empezar</h2></div>
-          <p>
-            Onboarding simple, modular y orientado a activar valor rápido sin sobredimensionar el arranque.
-          </p>
+          <p>Onboarding simple, modular y orientado a activar valor rápido sin sobredimensionar el arranque.</p>
         </div>
         <div class="grid-3">
-          <article class="card">
+          <article class="card step-item">
+            <div class="step-number">Paso 01</div>
             <h3>Diagnóstico y objetivo</h3>
             <p>Definimos el caso de uso, la prioridad económica y el resultado esperado.</p>
           </article>
-          <article class="card">
+          <article class="card step-item">
+            <div class="step-number">Paso 02</div>
             <h3>Conexión de datos</h3>
             <p>Revisamos fuentes, estructura, calidad mínima y viabilidad del contrato de datos.</p>
           </article>
-          <article class="card">
+          <article class="card step-item">
+            <div class="step-number">Paso 03</div>
             <h3>Activación y seguimiento</h3>
             <p>Desplegamos outputs accionables, medimos impacto y ampliamos con nuevas neuronas.</p>
           </article>
@@ -753,20 +921,18 @@
       <div class="container">
         <div class="section-head">
           <div><h2>Servicios IA</h2></div>
-          <p>
-            Capa de servicios para acompañar la adopción: estrategia, implementación, automatización y formación aplicada.
-          </p>
+          <p>Capa de servicios para acompañar la adopción: estrategia, implementación, automatización y formación aplicada.</p>
         </div>
         <div class="grid-3">
-          <article class="card">
+          <article class="card service-item">
             <h3>Diseño de arquitectura IA</h3>
             <p>Definición de casos de uso, mapa de datos, lógica de priorización y roadmap modular.</p>
           </article>
-          <article class="card">
+          <article class="card service-item">
             <h3>Integración y automatización</h3>
             <p>Conectividad con sistemas, flujos operativos, agentes, dashboards y activaciones inteligentes.</p>
           </article>
-          <article class="card">
+          <article class="card service-item">
             <h3>Capacitación y gobierno</h3>
             <p>Formación, adopción, principios de uso responsable y operación escalable con trazabilidad.</p>
           </article>
@@ -778,15 +944,27 @@
       <div class="container">
         <div class="section-head">
           <div><h2>Código ético</h2></div>
-          <p>
-            Marco de referencia para una inteligencia aplicada útil, verificable, gobernada y alineada con negocio y personas.
-          </p>
+          <p>Marco de referencia para una inteligencia aplicada útil, verificable, gobernada y alineada con negocio y personas.</p>
         </div>
         <div class="card">
-          <h3>Principios</h3>
-          <p>
-            Transparencia, trazabilidad, privacidad, seguridad, uso responsable e impacto medible.
-          </p>
+          <div class="ethics-list">
+            <div class="ethics-row">
+              <strong>Transparencia y trazabilidad</strong>
+              <p>Cada output debe poder explicarse, auditarse y vincularse con fuentes, reglas y procesos.</p>
+            </div>
+            <div class="ethics-row">
+              <strong>Privacidad y seguridad</strong>
+              <p>Protección de datos, control de acceso, minimización de exposición y diseño seguro desde origen.</p>
+            </div>
+            <div class="ethics-row">
+              <strong>Uso responsable</strong>
+              <p>Los sistemas deben ayudar a decidir mejor, no amplificar sesgos ni deteriorar la confianza organizativa.</p>
+            </div>
+            <div class="ethics-row">
+              <strong>Impacto medible</strong>
+              <p>La IA aplicada debe justificar su utilidad mediante eficiencia, valor económico y mejora operativa real.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -795,16 +973,16 @@
       <div class="container">
         <div class="section-head">
           <div><h2>Agente FAQs</h2></div>
-          <p>
-            Zona de preguntas frecuentes conectada al asistente NeXus para resolver dudas sobre neuronas, despliegue y servicios.
-          </p>
+          <p>Zona de preguntas frecuentes conectada al asistente NeXus para resolver dudas sobre neuronas, despliegue y servicios.</p>
         </div>
         <div class="grid-2">
-          <article class="card">
+          <article class="card faq-item">
+            <div class="faq-q">FAQ 01</div>
             <h3>¿Necesito tener todos mis datos perfectos para empezar?</h3>
             <p>No. Hace falta un mínimo viable de estructura y calidad para activar una primera neurona con criterio.</p>
           </article>
-          <article class="card">
+          <article class="card faq-item">
+            <div class="faq-q">FAQ 02</div>
             <h3>¿Las neuronas pueden desplegarse por separado?</h3>
             <p>Sí. El diseño es modular. Se puede arrancar por una prioridad concreta y escalar después.</p>
           </article>
@@ -816,16 +994,14 @@
       <div class="container">
         <div class="section-head">
           <div><h2>Quiénes somos</h2></div>
-          <p>
-            Kukulcán IA se presenta como un hub de inteligencia aplicada que conecta negocio, dato, automatización y activación.
-          </p>
+          <p>Kukulcán IA se presenta como un hub de inteligencia aplicada que conecta negocio, dato, automatización y activación.</p>
         </div>
         <div class="grid-2">
-          <article class="card">
+          <article class="card team-item">
             <h3>Posicionamiento</h3>
             <p>Hub especializado en transformar señales operativas y comerciales en decisiones listas para ejecutar.</p>
           </article>
-          <article class="card">
+          <article class="card team-item">
             <h3>Enfoque</h3>
             <p>Modularidad, trazabilidad, foco en ROI, mejora de experiencia de cliente y desarrollo del talento.</p>
           </article>
@@ -840,7 +1016,7 @@
           <p>Bloque de captación preparado para conectar con el equipo y activar una conversación inicial.</p>
         </div>
         <div class="contact-wrap">
-          <article class="card">
+          <article class="card contact-item">
             <form class="contact-form" onsubmit="event.preventDefault(); alert('Formulario de ejemplo. Conéctalo con tu backend o CRM.');">
               <div class="field">
                 <label for="nombre">Nombre</label>
@@ -862,18 +1038,15 @@
             </form>
           </article>
 
-          <article class="card">
+          <article class="card contact-item">
             <h3>Activación rápida</h3>
-            <p>
-              También puedes iniciar la conversación desde <strong>NeXus</strong>, el agente conversacional conectado con n8n.
-            </p>
+            <p>También puedes iniciar la conversación desde <strong>NeXus</strong>, el agente conversacional conectado con n8n.</p>
             <div class="hero-actions" style="margin-top:18px;">
               <button class="btn btn-secondary" type="button" id="contactNexusBtn">Abrir NeXus</button>
               <a class="link-btn btn-secondary" href="#catalogo">Ir al catálogo</a>
             </div>
-            <p style="margin-top:18px; font-size:.92rem;">
-              El chat solo se abre desde los botones NeXus y no muestra launcher flotante.
-            </p>
+            <div id="nexus-chat-anchor" aria-hidden="true"></div>
+            <p style="margin-top:18px; font-size:.92rem;">El widget se inicializa automáticamente al cargar la página y queda accesible desde los botones “NeXus”.</p>
           </article>
         </div>
       </div>
@@ -887,86 +1060,36 @@
           <strong style="display:block; color:var(--text); margin-bottom:6px;">Kukulcán IA</strong>
           <span>Neuronas de Inteligencia Artificial Aplicada.</span>
         </div>
-        <div>Powered by Kukulcán IA</div>
+        <div>Diseño visual tech-ancestral maya · preparado para iteración web.</div>
       </div>
     </div>
   </footer>
 
-  <!-- MODAL NEXUS -->
-  <div class="nexus-modal" id="nexusModal" aria-hidden="true">
-    <div class="nexus-modal-dialog">
-      <div class="nexus-modal-header">
-        <div class="nexus-modal-brand">
-          <div class="nexus-modal-brand-logo">
-            <!-- CAMBIA AQUÍ LA RUTA DEL LOGO SI QUIERES -->
-            <img src="logo-kukulcan-ia.png" alt="Logo Kukulcán IA">
-          </div>
-          <div class="nexus-modal-brand-text">
-            <strong>NeXus</strong>
-            <span>Powered by Kukulcán IA</span>
-          </div>
-        </div>
-
-        <button class="nexus-modal-close" type="button" id="closeNexusModal" aria-label="Cerrar">×</button>
-      </div>
-
-      <div class="nexus-modal-body">
-        <div class="chat-shell">
-          <div id="n8n-chat"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-    /* CAMBIA AQUÍ TU WEBHOOK SI ALGUNA VEZ LO MODIFICAS */
     const webhookUrl = 'https://kukulcanai.app.n8n.cloud/webhook/3a536b9d-ce1c-4715-9d44-6f4e30ab44f4/chat';
 
-    const modal = document.getElementById('nexusModal');
-    const closeBtn = document.getElementById('closeNexusModal');
-
-    function openNexusModal() {
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeNexusModal() {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
     createChat({
-      webhookUrl,
-      target: '#n8n-chat',
-      mode: 'window'
+      webhookUrl
     });
 
-    ['navNexusBtn', 'heroNexusBtn', 'contactNexusBtn'].forEach((id) => {
+    function openNexusChat() {
+      const launcher = document.querySelector('[class*="chat-launcher"], [class*="launcher"], .n8n-chat-launcher, [aria-label*="chat" i], [aria-label*="Chat" i]');
+      if (launcher instanceof HTMLElement) {
+        launcher.click();
+        return;
+      }
+      window.open(webhookUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    ['heroNexusBtn', 'contactNexusBtn', 'navNexusLink'].forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
-
       el.addEventListener('click', (event) => {
         event.preventDefault();
-        openNexusModal();
+        openNexusChat();
       });
-    });
-
-    closeBtn.addEventListener('click', closeNexusModal);
-
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) {
-        closeNexusModal();
-      }
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closeNexusModal();
-      }
     });
   </script>
 </body>
