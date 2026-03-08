@@ -1093,7 +1093,7 @@
          Ejemplo:
          const FAQS_WEBHOOK_URL = "https://TU-N8N/webhook/faqs-chat";
     */
-    const FAQS_WEBHOOK_URL = "PON_AQUI_LA_URL_DEL_WEBHOOK_N8N_DE_FAQS";
+    const FAQS_WEBHOOK_URL = "https://kukulcanai.app.n8n.cloud/webhook/3a536b9d-ce1c-4715-9d44-6f4e30ab44f4/chat";
   </script>
 
   <header class="site-header">
@@ -1943,5 +1943,13 @@
       agentName: "FAQs"
     });
   </script>
+  <script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: ' https://kukulcanai.app.n8n.cloud/webhook/3a536b9d-ce1c-4715-9d44-6f4e30ab44f4/chat'
+	});
+</script>
+
 </body>
 </html>
