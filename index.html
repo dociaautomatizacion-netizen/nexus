@@ -687,12 +687,16 @@
       gap: 4px;
       padding: 16px 18px;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(46,159,255,.14), rgba(255,255,255,.02));
+      background:
+        radial-gradient(circle at 20% 50%, rgba(110,193,255,.16), transparent 30%),
+        linear-gradient(180deg, rgba(46,159,255,.14), rgba(255,255,255,.02));
+      box-shadow: inset 0 -1px 0 rgba(110,193,255,.08);
     }
 
     .chat-dialog-header strong {
       color: var(--text);
       font-size: 1rem;
+      letter-spacing: .02em;
     }
 
     .chat-dialog-header span {
@@ -703,7 +707,9 @@
     .chat-dialog-body {
       height: calc(100% - 74px);
       overflow: hidden;
-      background: rgba(4, 16, 27, 0.96);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(46,159,255,.08), transparent 35%),
+        linear-gradient(180deg, rgba(4, 16, 27, 0.98), rgba(3, 12, 22, 1));
     }
 
     .chat-close {
@@ -735,6 +741,133 @@
     #n8n-chat,
     #n8n-chat * {
       font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* =========================
+       ESTILO INTERNO DEL CHAT N8N
+       ========================= */
+
+    /* Oculta el header nativo feo del widget */
+    #n8n-chat .chat-header {
+      display: none !important;
+    }
+
+    /* Layout general */
+    #n8n-chat .chat-layout,
+    #n8n-chat .chat-wrapper,
+    #n8n-chat .n8n-chat,
+    #n8n-chat main {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(110,193,255,.06), transparent 28%),
+        linear-gradient(180deg, rgba(7,20,36,0.96), rgba(4,16,27,0.98)) !important;
+      color: var(--text) !important;
+    }
+
+    /* Zona de mensajes */
+    #n8n-chat .chat-body {
+      background: transparent !important;
+      padding: 16px !important;
+    }
+
+    #n8n-chat .chat-messages-list {
+      gap: 12px !important;
+    }
+
+    /* Burbujas bot */
+    #n8n-chat .chat-message-from-bot .chat-message-markdown {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)) !important;
+      border: 1px solid rgba(110, 193, 255, 0.16) !important;
+      color: var(--text) !important;
+      border-radius: 18px 18px 18px 8px !important;
+      padding: 12px 14px !important;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18) !important;
+      backdrop-filter: blur(10px) !important;
+    }
+
+    /* Burbujas usuario */
+    #n8n-chat .chat-message-from-user .chat-message-markdown {
+      background:
+        linear-gradient(180deg, rgba(46,159,255,0.26), rgba(46,159,255,0.14)) !important;
+      border: 1px solid rgba(110,193,255,0.24) !important;
+      color: #eef7ff !important;
+      border-radius: 18px 18px 8px 18px !important;
+      padding: 12px 14px !important;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18) !important;
+      backdrop-filter: blur(10px) !important;
+    }
+
+    #n8n-chat .chat-message-markdown p {
+      margin: 0 !important;
+      line-height: 1.6 !important;
+      font-size: 0.95rem !important;
+    }
+
+    /* Footer */
+    #n8n-chat .chat-footer {
+      background: rgba(4, 16, 27, 0.88) !important;
+      border-top: 1px solid rgba(110,193,255,0.10) !important;
+      padding: 12px !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.02) !important;
+    }
+
+    #n8n-chat .chat-input {
+      background: transparent !important;
+    }
+
+    /* Caja de escritura */
+    #n8n-chat textarea[data-test-id="chat-input"] {
+      background: rgba(255,255,255,0.04) !important;
+      color: var(--text) !important;
+      border: 1px solid rgba(110,193,255,0.20) !important;
+      border-radius: 16px !important;
+      padding: 14px 50px 14px 14px !important;
+      min-height: 52px !important;
+      font-family: 'Inter', system-ui, sans-serif !important;
+      font-size: 0.95rem !important;
+      resize: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    #n8n-chat textarea[data-test-id="chat-input"]:focus {
+      border-color: rgba(110,193,255,0.38) !important;
+      box-shadow: 0 0 0 4px rgba(46,159,255,.08) !important;
+    }
+
+    #n8n-chat textarea[data-test-id="chat-input"]::placeholder {
+      color: #9eb5c8 !important;
+      opacity: 1 !important;
+    }
+
+    /* Botón enviar */
+    #n8n-chat .chat-input-send-button {
+      background: linear-gradient(180deg, #9fddff, #46b7ff) !important;
+      color: #04101b !important;
+      border: none !important;
+      border-radius: 14px !important;
+      width: 42px !important;
+      height: 42px !important;
+      box-shadow: 0 10px 20px rgba(46,159,255,0.24) !important;
+    }
+
+    #n8n-chat .chat-input-send-button:disabled {
+      opacity: 0.45 !important;
+      cursor: not-allowed !important;
+    }
+
+    /* Scroll */
+    #n8n-chat *::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    #n8n-chat *::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.03);
+    }
+
+    #n8n-chat *::-webkit-scrollbar-thumb {
+      background: rgba(110,193,255,0.22);
+      border-radius: 999px;
     }
 
     @media (max-width: 1120px) {
@@ -1196,7 +1329,7 @@
 
       <div class="chat-dialog-header">
         <strong id="chatTitle">Acceso a Nexus permitido</strong>
-        <span>Agente IA Customer Cenctric (powered b Kukulcán AI)</span>
+        <span>Agente IA Customer Cenctric (powered by Kukulcán AI)</span>
       </div>
 
       <div class="chat-dialog-body">
@@ -1226,12 +1359,12 @@
         showWelcomeScreen: false,
         initialMessages: [
           'Encantado de darle acceso.',
-          'Bienvenido, soy el Agente Customer Centric. ¿Quiere realizar alguna consulta?.'
+          'Bienvenido, soy el Agente Customer Centric. ¿Quiere realizar alguna consulta?'
         ],
         i18n: {
           es: {
             title: 'Agente Customer Centric',
-            subtitle: 'powerd by Kukulcan AI',
+            subtitle: 'powered by Kukulcán AI',
             footer: '',
             getStarted: 'Iniciar conversación',
             inputPlaceholder: 'Escribe tu mensaje...'
@@ -1240,6 +1373,14 @@
       });
 
       chatInitialized = true;
+
+      // Refuerzo visual por si el placeholder del widget no respeta i18n
+      setTimeout(() => {
+        const textarea = document.querySelector('#n8n-chat textarea[data-test-id="chat-input"]');
+        if (textarea) {
+          textarea.setAttribute('placeholder', 'Escribe tu consulta...');
+        }
+      }, 300);
     }
 
     function openNexusChat() {
