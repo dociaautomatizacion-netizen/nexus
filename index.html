@@ -4,22 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kukulcán IA — Neuronas de Inteligencia Artificial Aplicada</title>
-  <meta name="description" content="Kukulcán IA convierte datos operativos y comerciales en decisiones accionables de alto valor mediante neuronas de negocio y servicios de inteligencia artificial aplicada." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="Kukulcán IA convierte datos operativos y comerciales en decisiones accionables de alto valor mediante neuronas de negocio y servicios de inteligencia artificial aplicada."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
   <style>
     :root {
-      --bg-1: #06111f;
-      --bg-2: #0a1a2f;
-      --bg-3: #102745;
-      --line: rgba(119, 188, 255, 0.18);
-      --line-strong: rgba(119, 188, 255, 0.42);
-      --cyan: #8bd9ff;
-      --cyan-2: #45c5ff;
-      --text: #eaf4ff;
-      --muted: #b8cadb;
+      --bg-1: #04101c;
+      --bg-2: #08182c;
+      --bg-3: #0d2746;
+      --line: rgba(80, 170, 255, 0.22);
+      --line-strong: rgba(80, 170, 255, 0.45);
+      --cyan: #6ec1ff;
+      --cyan-2: #2e9fff;
+      --text: #eef7ff;
+      --muted: #b7c9da;
       --stone: #8fa4b8;
       --alert: #f3b34c;
       --card: rgba(10, 25, 45, 0.58);
@@ -31,14 +40,16 @@
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 20% 20%, rgba(69, 197, 255, 0.12), transparent 28%),
-        radial-gradient(circle at 80% 10%, rgba(139, 217, 255, 0.10), transparent 25%),
+        radial-gradient(circle at 20% 20%, rgba(46, 159, 255, 0.12), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(110, 193, 255, 0.10), transparent 25%),
         radial-gradient(circle at 50% 70%, rgba(90, 130, 200, 0.09), transparent 34%),
         linear-gradient(180deg, var(--bg-1), var(--bg-2) 55%, #071120 100%);
       min-height: 100vh;
@@ -56,8 +67,8 @@
 
     body::before {
       background-image:
-        linear-gradient(rgba(139, 217, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 217, 255, 0.035) 1px, transparent 1px);
+        linear-gradient(rgba(110, 193, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110, 193, 255, 0.035) 1px, transparent 1px);
       background-size: 120px 120px;
       mask-image: radial-gradient(circle at center, black 52%, transparent 100%);
       opacity: 0.55;
@@ -66,7 +77,7 @@
     body::after {
       background-image:
         radial-gradient(circle, rgba(255,255,255,0.22) 0.7px, transparent 1px),
-        radial-gradient(circle, rgba(139,217,255,0.15) 0.7px, transparent 1px);
+        radial-gradient(circle, rgba(110,193,255,0.15) 0.7px, transparent 1px);
       background-size: 140px 140px, 210px 210px;
       background-position: 0 0, 50px 90px;
       opacity: 0.2;
@@ -85,7 +96,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(16px);
-      background: rgba(6, 17, 31, 0.72);
+      background: rgba(4, 16, 28, 0.78);
       border-bottom: 1px solid var(--line);
     }
 
@@ -105,19 +116,25 @@
     }
 
     .brand-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       overflow: hidden;
       border: 1px solid var(--line-strong);
-      background: linear-gradient(135deg, rgba(139,217,255,.12), rgba(255,255,255,.04));
-      box-shadow: 0 0 30px rgba(69,197,255,.12);
+      background: linear-gradient(135deg, rgba(110,193,255,.12), rgba(255,255,255,.04));
+      box-shadow: 0 0 30px rgba(46,159,255,.12);
       flex: 0 0 auto;
+      display: grid;
+      place-items: center;
     }
 
-    .brand-copy {
-      min-width: 0;
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+
+    .brand-copy { min-width: 0; }
 
     .brand-copy strong {
       display: block;
@@ -149,7 +166,7 @@
     .menu a:hover,
     .menu a:focus-visible {
       color: var(--text);
-      text-shadow: 0 0 18px rgba(139,217,255,.25);
+      text-shadow: 0 0 18px rgba(110,193,255,.25);
     }
 
     .menu .nexus-link {
@@ -157,7 +174,7 @@
       border-radius: 999px;
       border: 1px solid var(--line-strong);
       color: var(--text);
-      background: linear-gradient(180deg, rgba(69,197,255,.10), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, rgba(46,159,255,.12), rgba(255,255,255,.03));
     }
 
     .hero {
@@ -171,7 +188,7 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at center, rgba(69,197,255,.10), transparent 28%),
+        radial-gradient(circle at center, rgba(46,159,255,.10), transparent 28%),
         linear-gradient(180deg, transparent, rgba(6,17,31,.28));
       pointer-events: none;
     }
@@ -235,6 +252,8 @@
       font-weight: 600;
       cursor: pointer;
       transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      font: inherit;
+      text-decoration: none;
     }
 
     .btn:hover,
@@ -246,8 +265,8 @@
 
     .btn-primary {
       color: #04101b;
-      background: linear-gradient(180deg, #a6e8ff, #63d4ff);
-      box-shadow: 0 16px 40px rgba(69, 197, 255, .22);
+      background: linear-gradient(180deg, #9fddff, #46b7ff);
+      box-shadow: 0 16px 40px rgba(46, 159, 255, .22);
     }
 
     .btn-secondary {
@@ -262,8 +281,8 @@
       border-radius: 28px;
       border: 1px solid var(--line);
       background:
-        radial-gradient(circle at 70% 25%, rgba(139,217,255,.14), transparent 20%),
-        radial-gradient(circle at 45% 56%, rgba(69,197,255,.10), transparent 28%),
+        radial-gradient(circle at 70% 25%, rgba(110,193,255,.14), transparent 20%),
+        radial-gradient(circle at 45% 56%, rgba(46,159,255,.10), transparent 28%),
         linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
       overflow: hidden;
@@ -284,7 +303,7 @@
       width: 58%;
       height: 58%;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(139,217,255,.18), transparent 66%);
+      background: radial-gradient(circle, rgba(110,193,255,.18), transparent 66%);
       filter: blur(8px);
     }
 
@@ -293,8 +312,8 @@
       bottom: 5%;
       width: 90%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(139,217,255,.28), transparent);
-      box-shadow: 0 0 16px rgba(139,217,255,.22);
+      background: linear-gradient(90deg, transparent, rgba(110,193,255,.28), transparent);
+      box-shadow: 0 0 16px rgba(110,193,255,.22);
     }
 
     .constellation,
@@ -312,8 +331,8 @@
     .glyph-layer {
       inset: 0;
       background:
-        linear-gradient(120deg, transparent 0 34%, rgba(139,217,255,.07) 34% 35%, transparent 35% 100%),
-        linear-gradient(25deg, transparent 0 55%, rgba(139,217,255,.06) 55% 56%, transparent 56% 100%);
+        linear-gradient(120deg, transparent 0 34%, rgba(110,193,255,.07) 34% 35%, transparent 35% 100%),
+        linear-gradient(25deg, transparent 0 55%, rgba(110,193,255,.06) 55% 56%, transparent 56% 100%);
       mix-blend-mode: screen;
     }
 
@@ -339,7 +358,7 @@
       width: 52%;
       aspect-ratio: 1;
       opacity: 0.2;
-      filter: drop-shadow(0 0 28px rgba(139,217,255,.10));
+      filter: drop-shadow(0 0 28px rgba(110,193,255,.10));
     }
 
     .hud-card {
@@ -379,8 +398,8 @@
       display: grid;
       place-items: center;
       text-align: center;
-      background: radial-gradient(circle, rgba(139,217,255,.16), rgba(6,17,31,.32));
-      box-shadow: 0 0 38px rgba(69,197,255,.15), inset 0 0 22px rgba(139,217,255,.08);
+      background: radial-gradient(circle, rgba(110,193,255,.16), rgba(6,17,31,.32));
+      box-shadow: 0 0 38px rgba(46,159,255,.15), inset 0 0 22px rgba(110,193,255,.08);
       font-weight: 700;
       letter-spacing: .08em;
     }
@@ -391,7 +410,7 @@
       position: absolute;
       inset: -18px;
       border-radius: 50%;
-      border: 1px dashed rgba(139,217,255,.16);
+      border: 1px dashed rgba(110,193,255,.16);
     }
 
     .future-node::after {
@@ -453,7 +472,7 @@
       left: 22px;
       width: 88px;
       height: 1px;
-      background: linear-gradient(90deg, rgba(139,217,255,.7), transparent);
+      background: linear-gradient(90deg, rgba(110,193,255,.7), transparent);
     }
 
     .icon-chip {
@@ -463,7 +482,7 @@
       place-items: center;
       border-radius: 14px;
       border: 1px solid var(--line-strong);
-      background: rgba(69,197,255,.07);
+      background: rgba(46,159,255,.07);
       margin-bottom: 16px;
       color: var(--cyan);
     }
@@ -490,7 +509,7 @@
       padding: 22px;
       border-radius: var(--radius);
       border: 1px solid var(--line);
-      background: linear-gradient(90deg, rgba(69,197,255,.08), rgba(255,255,255,.03));
+      background: linear-gradient(90deg, rgba(46,159,255,.08), rgba(255,255,255,.03));
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 20px;
@@ -559,7 +578,7 @@
       padding: 16px 18px;
       border-radius: 16px;
       background: rgba(255,255,255,.03);
-      border: 1px solid rgba(139,217,255,.10);
+      border: 1px solid rgba(110,193,255,.10);
     }
 
     .ethics-row strong { color: var(--text); }
@@ -603,7 +622,7 @@
     .field textarea:focus,
     .field select:focus {
       border-color: var(--line-strong);
-      box-shadow: 0 0 0 4px rgba(69,197,255,.08);
+      box-shadow: 0 0 0 4px rgba(46,159,255,.08);
     }
 
     .field textarea {
@@ -642,6 +661,94 @@
     #nexus-chat-anchor {
       position: relative;
       top: -90px;
+    }
+
+    /* MODAL CHAT */
+    .chat-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+    }
+
+    .chat-modal.is-open {
+      display: block;
+    }
+
+    .chat-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(3, 10, 20, 0.72);
+      backdrop-filter: blur(8px);
+    }
+
+    .chat-dialog {
+      position: relative;
+      width: min(92vw, 460px);
+      height: min(82vh, 720px);
+      margin: 5vh auto 0;
+      border-radius: 22px;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, rgba(8,20,36,.96), rgba(6,17,31,.98));
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .chat-dialog-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(46,159,255,.14), rgba(255,255,255,.02));
+    }
+
+    .chat-dialog-header strong {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .chat-dialog-header span {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .chat-dialog-body {
+      height: calc(100% - 74px);
+      overflow: hidden;
+      background: rgba(4, 16, 27, 0.96);
+    }
+
+    .chat-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .chat-close:hover {
+      background: rgba(255,255,255,.10);
+    }
+
+    #n8n-chat {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Ajustes visuales del contenedor del chat */
+    #n8n-chat,
+    #n8n-chat * {
+      font-family: 'Inter', system-ui, sans-serif;
     }
 
     @media (max-width: 1120px) {
@@ -687,6 +794,12 @@
       .hud-a, .hud-b, .hud-c { width: min(220px, calc(100% - 34px)); }
       .ethics-row { grid-template-columns: 1fr; }
       .footer-card { flex-direction: column; align-items: flex-start; }
+
+      .chat-dialog {
+        width: min(96vw, 460px);
+        height: min(86vh, 720px);
+        margin-top: 4vh;
+      }
     }
 
     @media (max-width: 560px) {
@@ -697,6 +810,12 @@
       .hero-panel { min-height: 380px; }
       .platform { height: 100px; }
       .kukulcan-mark { width: 58%; }
+
+      .chat-dialog {
+        width: 96vw;
+        height: 88vh;
+        margin-top: 3vh;
+      }
     }
   </style>
 </head>
@@ -705,7 +824,12 @@
     <div class="container nav">
       <a class="brand" href="#inicio" aria-label="Kukulcán IA">
         <div class="brand-logo">
-          <img src="logo-kukulcan-ia.png" alt="Logo Kukulcán IA" onerror="this.style.display='none'; this.parentElement.innerHTML='<svg viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\' aria-hidden=\'true\'><defs><linearGradient id=\'g\' x1=\'0\' x2=\'1\'><stop offset=\'0%\' stop-color=\'#8bd9ff\'/><stop offset=\'100%\' stop-color=\'#45c5ff\'/></linearGradient></defs><rect x=\'0\' y=\'0\' width=\'100\' height=\'100\' rx=\'18\' fill=\'#071423\'/><path d=\'M24 61c9-3 14-11 17-18 4-9 11-16 22-16 8 0 14 3 17 8-5-1-10 0-14 2 8 1 14 8 14 16 0 10-9 18-21 18-9 0-16-4-21-8-3 7-11 12-22 12 5-4 8-9 8-14z\' fill=\'url(#g)\' opacity=\'.9'/><circle cx=\'71\' cy=\'43\' r=\'2.5\' fill=\'#eaf4ff\'/></svg>'">
+          <!-- CAMBIA ESTA URL POR LA TUYA REAL DE GITHUB / JSDELIVR / GITHUB PAGES -->
+          <img
+            src="https://cdn.jsdelivr.net/gh/USUARIO/REPO@main/assets/logo-kukulcan-ia.png"
+            alt="Logo Kukulcán IA"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<svg viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\' aria-hidden=\'true\'><defs><linearGradient id=\'g\' x1=\'0\' x2=\'1\'><stop offset=\'0%\' stop-color=\'#6ec1ff\'/><stop offset=\'100%\' stop-color=\'#2e9fff\'/></linearGradient></defs><rect x=\'0\' y=\'0\' width=\'100\' height=\'100\' rx=\'18\' fill=\'#071423\'/><path d=\'M24 61c9-3 14-11 17-18 4-9 11-16 22-16 8 0 14 3 17 8-5-1-10 0-14 2 8 1 14 8 14 16 0 10-9 18-21 18-9 0-16-4-21-8-3 7-11 12-22 12 5-4 8-9 8-14z\' fill=\'url(#g)\' opacity=\'.9'/><circle cx=\'71\' cy=\'43\' r=\'2.5\' fill=\'#eaf4ff\'/></svg>'"
+          />
         </div>
         <div class="brand-copy">
           <strong>Kukulcán IA</strong>
@@ -732,12 +856,15 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid" id="que-es">
         <div>
-          <div class="eyebrow">Kukulcán IA · Hub de inteligencia aplicada</div>
-          <h1>Neuronas de Inteligencia Artificial Aplicada</h1>
-          <p>Somos un Hub de Inteligencia Artificial que convertimos los datos operativos y comerciales en decisiones accionables y de alto valor, con foco en máximo ROI, satisfacción del cliente y desarrollo del talento.</p>
+          <div class="eyebrow">Kukulcán IA · Inteligencia aplicada al negocio</div>
+          <h1>Activa decisiones más inteligentes con IA aplicada</h1>
+          <p>
+            Convertimos datos, procesos y conocimiento operativo en acciones de alto valor para
+            mejorar rentabilidad, eficiencia, experiencia de cliente y capacidad de decisión.
+          </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
-            <button class="btn btn-secondary" id="heroNexusBtn" type="button">Acceso a NeXus</button>
+            <a class="btn btn-primary" href="#catalogo">Descubrir soluciones</a>
+            <button class="btn btn-secondary" id="heroNexusBtn" type="button">Hablar con NeXus</button>
           </div>
         </div>
 
@@ -745,9 +872,9 @@
           <svg class="constellation" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="lineGlow" x1="0" x2="1">
-                <stop offset="0%" stop-color="#8bd9ff" stop-opacity="0"/>
-                <stop offset="40%" stop-color="#8bd9ff" stop-opacity="0.9"/>
-                <stop offset="100%" stop-color="#8bd9ff" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#6ec1ff" stop-opacity="0"/>
+                <stop offset="40%" stop-color="#6ec1ff" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#6ec1ff" stop-opacity="0"/>
               </linearGradient>
             </defs>
             <g opacity="0.75">
@@ -758,12 +885,12 @@
               <path d="M392 405 C300 488, 204 566, 106 598" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
               <path d="M408 410 C508 492, 578 574, 694 614" fill="none" stroke="url(#lineGlow)" stroke-width="2"/>
             </g>
-            <g fill="#8bd9ff">
+            <g fill="#6ec1ff">
               <circle cx="124" cy="214" r="6"/><circle cx="162" cy="430" r="6"/><circle cx="106" cy="598" r="6"/>
               <circle cx="400" cy="402" r="8"/><circle cx="666" cy="176" r="6"/><circle cx="692" cy="350" r="6"/>
               <circle cx="694" cy="614" r="6"/>
             </g>
-            <g stroke="#8bd9ff" stroke-width="1" opacity="0.35">
+            <g stroke="#6ec1ff" stroke-width="1" opacity="0.35">
               <circle cx="400" cy="402" r="108" fill="none"/>
               <circle cx="400" cy="402" r="168" fill="none" stroke-dasharray="6 10"/>
             </g>
@@ -776,8 +903,8 @@
           <svg class="kukulcan-mark" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="kgrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#8bd9ff"/>
-                <stop offset="100%" stop-color="#5caad5"/>
+                <stop offset="0%" stop-color="#6ec1ff"/>
+                <stop offset="100%" stop-color="#2e9fff"/>
               </linearGradient>
             </defs>
             <path d="M430 104c46 9 74 45 74 90 0 44-24 83-70 103 16 36 17 78-2 117-33 68-117 97-196 67-48-18-87-59-107-107 18 11 41 18 67 18 55 0 101-30 119-73-65-1-116-46-116-104 0-61 55-111 124-111 42 0 79 18 103 46-17-2-35 1-51 10 26 1 45 19 55 44z" fill="none" stroke="url(#kgrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
@@ -811,7 +938,10 @@
           <div>
             <h2>Neuronas de Negocio</h2>
           </div>
-          <p>Las neuronas son módulos independientes de inteligencia aplicada. Cada neurona define su contrato de datos, aplica un proceso analítico (modelo/algoritmo) y entrega outputs listos para activar.</p>
+          <p>
+            Las neuronas son módulos independientes de inteligencia aplicada. Cada neurona define
+            su contrato de datos, aplica un proceso analítico y entrega outputs listos para activar.
+          </p>
         </div>
 
         <div class="grid-4">
@@ -851,7 +981,10 @@
         <div class="band">
           <div>
             <strong>Arquitectura modular, activable y trazable</strong>
-            <p>Cada neurona puede desplegarse de forma independiente o integrarse dentro de una malla de inteligencia con gobernanza, conectividad y trazabilidad extremo a extremo.</p>
+            <p>
+              Cada neurona puede desplegarse de forma independiente o integrarse dentro de una
+              malla de inteligencia con gobernanza, conectividad y trazabilidad extremo a extremo.
+            </p>
           </div>
           <div class="tag-list">
             <span class="tag">Datos</span>
@@ -869,7 +1002,10 @@
       <div class="container">
         <div class="section-head">
           <div><h2>Catálogo</h2></div>
-          <p>Bloques de oferta preparados para evolucionar a catálogo definitivo. Sustituye o amplía estas tarjetas por el portafolio real de neuronas cuando lo cierres funcionalmente.</p>
+          <p>
+            Bloques de oferta preparados para evolucionar a catálogo definitivo. Sustituye o amplía
+            estas tarjetas por el portafolio real de neuronas cuando lo cierres funcionalmente.
+          </p>
         </div>
         <div class="grid-3">
           <article class="card catalog-item">
@@ -1020,15 +1156,15 @@
             <form class="contact-form" onsubmit="event.preventDefault(); alert('Formulario de ejemplo. Conéctalo con tu backend o CRM.');">
               <div class="field">
                 <label for="nombre">Nombre</label>
-                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
               </div>
               <div class="field">
                 <label for="empresa">Empresa</label>
-                <input id="empresa" name="empresa" type="text" placeholder="Tu empresa">
+                <input id="empresa" name="empresa" type="text" placeholder="Tu empresa" />
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="nombre@empresa.com" required>
+                <input id="email" name="email" type="email" placeholder="nombre@empresa.com" required />
               </div>
               <div class="field">
                 <label for="mensaje">Mensaje</label>
@@ -1046,7 +1182,9 @@
               <a class="link-btn btn-secondary" href="#catalogo">Ir al catálogo</a>
             </div>
             <div id="nexus-chat-anchor" aria-hidden="true"></div>
-            <p style="margin-top:18px; font-size:.92rem;">El widget se inicializa automáticamente al cargar la página y queda accesible desde los botones “NeXus”.</p>
+            <p style="margin-top:18px; font-size:.92rem;">
+              El asistente se abre en una ventana modal y sigue conectado con tu workflow de n8n.
+            </p>
           </article>
         </div>
       </div>
@@ -1065,27 +1203,83 @@
     </div>
   </footer>
 
+  <!-- MODAL DEL CHAT -->
+  <div class="chat-modal" id="chatModal" aria-hidden="true">
+    <div class="chat-backdrop" id="chatBackdrop"></div>
+
+    <div class="chat-dialog" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
+      <button class="chat-close" id="chatCloseBtn" aria-label="Cerrar chat">×</button>
+
+      <div class="chat-dialog-header">
+        <strong id="chatTitle">NeXus · Asistente Inteligente</strong>
+        <span>Conectado con Kukulcán IA</span>
+      </div>
+
+      <div class="chat-dialog-body">
+        <div id="n8n-chat"></div>
+      </div>
+    </div>
+  </div>
+
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     const webhookUrl = 'https://kukulcanai.app.n8n.cloud/webhook/3a536b9d-ce1c-4715-9d44-6f4e30ab44f4/chat';
 
+    const chatModal = document.getElementById('chatModal');
+    const chatBackdrop = document.getElementById('chatBackdrop');
+    const chatCloseBtn = document.getElementById('chatCloseBtn');
+
     createChat({
-      webhookUrl
+      webhookUrl,
+      target: '#n8n-chat',
+      mode: 'window',
+      showWelcomeScreen: false,
+      initialMessages: [
+        'Hola, soy NeXus.',
+        'Estoy aquí para ayudarte a conocer Kukulcán IA, sus neuronas de negocio y sus servicios.'
+      ],
+      i18n: {
+        es: {
+          title: 'NeXus',
+          subtitle: 'Asistente inteligente',
+          footer: '',
+          getStarted: 'Iniciar conversación',
+          inputPlaceholder: 'Escribe tu mensaje...'
+        }
+      }
     });
 
     function openNexusChat() {
-      const launcher = document.querySelector('[class*="chat-launcher"], [class*="launcher"], .n8n-chat-launcher, [aria-label*="chat" i], [aria-label*="Chat" i]');
-      if (launcher instanceof HTMLElement) {
-        launcher.click();
-        return;
-      }
-      window.open(webhookUrl, '_blank', 'noopener,noreferrer');
+      chatModal.classList.add('is-open');
+      chatModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
+
+    function closeNexusChat() {
+      chatModal.classList.remove('is-open');
+      chatModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    if (chatBackdrop) {
+      chatBackdrop.addEventListener('click', closeNexusChat);
+    }
+
+    if (chatCloseBtn) {
+      chatCloseBtn.addEventListener('click', closeNexusChat);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeNexusChat();
+      }
+    });
 
     ['heroNexusBtn', 'contactNexusBtn', 'navNexusLink'].forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
+
       el.addEventListener('click', (event) => {
         event.preventDefault();
         openNexusChat();
